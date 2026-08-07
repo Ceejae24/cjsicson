@@ -209,13 +209,14 @@
         </div>
     </header>
 
-    <!-- CORE COMPETENCIES SECTION -->
+    <!-- CORE COMPETENCIES SECTION (UPGRADED TO 6 CARDS) -->
     <section class="py-16 lg:py-24 px-6 bg-altBg border-b border-slate-200">
-        <div class="max-w-5xl mx-auto">
+        <div class="max-w-6xl mx-auto">
             <h2 class="text-2xl font-bold text-textMain mb-12 text-center tracking-wide uppercase" data-aos="fade-up">My Skills</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Cloud & Identity -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- 1. Cloud & Identity -->
                 <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="100">
                     <i class="fa-solid fa-cloud text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
                     <h3 class="text-lg font-bold text-textMain mb-4">Cloud & Infrastructure</h3>
@@ -227,46 +228,71 @@
                     </ul>
                 </div>
 
-                <!-- Web Development & Code -->
+                <!-- 2. Endpoint & Security -->
                 <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-shield-halved text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-textMain mb-4">Security & Devices</h3>
+                    <ul class="space-y-3 text-sm font-medium text-textMuted">
+                        <li><span class="text-primary mr-2">✦</span>Microsoft Intune & MDM</li>
+                        <li><span class="text-primary mr-2">✦</span>NinjaOne RMM & Heimdal</li>
+                        <li><span class="text-primary mr-2">✦</span>Zero Trust & Conditional Access</li>
+                        <li><span class="text-primary mr-2">✦</span>Data Privacy (DPO) & Compliance</li>
+                    </ul>
+                </div>
+
+                <!-- 3. Operations, Finance & Procurement (NEW) -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-handshake text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-textMain mb-4">Operations & Vendors</h3>
+                    <ul class="space-y-3 text-sm font-medium text-textMuted">
+                        <li><span class="text-primary mr-2">✦</span>IT Procurement & Vendor Relations</li>
+                        <li><span class="text-primary mr-2">✦</span>Subscription Billing & Financial Tracking</li>
+                        <li><span class="text-primary mr-2">✦</span>IT Asset & Hardware Lifecycle Management</li>
+                        <li><span class="text-primary mr-2">✦</span>SOP Development & Documentation</li>
+                    </ul>
+                </div>
+
+                <!-- 4. Soft Skills & Leadership (NEW) -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fa-solid fa-users text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-textMain mb-4">Professional Skills</h3>
+                    <ul class="space-y-3 text-sm font-medium text-textMuted">
+                        <li><span class="text-primary mr-2">✦</span>Cross-Functional Communication</li>
+                        <li><span class="text-primary mr-2">✦</span>Tier 1 & Tier 2 Technical Support</li>
+                        <li><span class="text-primary mr-2">✦</span>Stakeholder & Vendor Negotiation</li>
+                        <li><span class="text-primary mr-2">✦</span>Management (Mancom) Reporting</li>
+                    </ul>
+                </div>
+
+                <!-- 5. Automation & Scripting -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="500">
+                    <i class="fa-solid fa-wand-magic-sparkles text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-textMain mb-4">IT Automation</h3>
+                    <ul class="space-y-3 text-sm font-medium text-textMuted">
+                        <li><span class="text-primary mr-2">✦</span>Google Apps Script</li>
+                        <li><span class="text-primary mr-2">✦</span>Microsoft Power Automate</li>
+                        <li><span class="text-primary mr-2">✦</span>Automated Ticketing Systems</li>
+                        <li><span class="text-primary mr-2">✦</span>Zero-Touch App Deployment</li>
+                    </ul>
+                </div>
+
+                <!-- 6. Web Development & Code -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="600">
                     <i class="fa-solid fa-code text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
                     <h3 class="text-lg font-bold text-textMain mb-4">WordPress Front-End</h3>
                     <ul class="space-y-3 text-sm font-medium text-textMuted">
                         <li><span class="text-primary mr-2">✦</span>Custom Theme Design</li>
-                        <li><span class="text-primary mr-2">✦</span>HTML5, CSS3 & JavaScript</li>
+                        <li><span class="text-primary mr-2">✦</span>HTML5, CSS3, PHP & JavaScript</li>
                         <li><span class="text-primary mr-2">✦</span>Elementor & Gutenberg</li>
-                        <li><span class="text-primary mr-2">✦</span>SEO & Site Speed</li>
+                        <li><span class="text-primary mr-2">✦</span>Technical SEO & Site Speed</li>
                     </ul>
                 </div>
 
-                <!-- Endpoint & Security -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fa-solid fa-shield-halved text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-lg font-bold text-textMain mb-4">Security & Devices</h3>
-                    <ul class="space-y-3 text-sm font-medium text-textMuted">
-                        <li><span class="text-primary mr-2">✦</span>Microsoft Intune & Device Management</li>
-                        <li><span class="text-primary mr-2">✦</span>NinjaOne RMM & Heimdal Security</li>
-                        <li><span class="text-primary mr-2">✦</span>Zero Trust Security</li>
-                        <li><span class="text-primary mr-2">✦</span>Data Privacy & Rules</li>
-                    </ul>
-                </div>
-
-                <!-- Automation & Scripting -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="400">
-                    <i class="fa-solid fa-wand-magic-sparkles text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-lg font-bold text-textMain mb-4">Automation</h3>
-                    <ul class="space-y-3 text-sm font-medium text-textMuted">
-                        <li><span class="text-primary mr-2">✦</span>Google Apps Script</li>
-                        <li><span class="text-primary mr-2">✦</span>Microsoft Power Automate</li>
-                        <li><span class="text-primary mr-2">✦</span>Custom Integrations</li>
-                        <li><span class="text-primary mr-2">✦</span>Helpdesk Ticketing</li>
-                    </ul>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT ME & SOFT SKILLS SECTION -->
+    <!-- ABOUT ME SECTION -->
     <section id="about" class="py-16 lg:py-24 px-6 bg-lightBg relative overflow-hidden">
         
         <div class="max-w-6xl mx-auto relative z-10">
@@ -318,7 +344,7 @@
                     <p class="text-textMuted font-medium mt-2">Swipe or use arrows to explore my WordPress builds.</p>
                 </div>
                 
-                <!-- Slider Controls (Hidden on mobile where they can just swipe) -->
+                <!-- Slider Controls -->
                 <div class="hidden sm:flex gap-3">
                     <button id="prevProject" class="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 clickable shadow-sm">
                         <i class="fa-solid fa-chevron-left"></i>
@@ -464,7 +490,7 @@
             <!-- Neun Farben Corp -->
             <div class="relative border-l-2 border-slate-200 ml-2 sm:ml-4 pl-6 sm:pl-8 mb-12 lg:mb-14 hover:border-primary transition-colors duration-500 clickable" data-aos="fade-up" data-aos-delay="100">
                 
-                <!-- NEW: Active Server Pulse -->
+                <!-- Active Server Pulse -->
                 <div class="absolute -left-[9px] top-1 flex h-4 w-4">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-50"></span>
                     <span class="relative inline-flex rounded-full h-4 w-4 bg-primary shadow-sm"></span>
@@ -602,11 +628,10 @@
         const parallaxElements = document.querySelectorAll('.parallax');
         const scrollProgress = document.getElementById('scrollProgress');
 
-        // 2. Scroll Events (Navbar, Back to top, Parallax, Progress bar)
+        // 2. Scroll Events
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
 
-            // Scroll Progress Bar Logic
             const totalScroll = document.documentElement.scrollTop;
             const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrollPercent = `${(totalScroll / windowHeight) * 100}%`;
@@ -640,7 +665,6 @@
         const cursor = document.getElementById('custom-cursor');
         const clickables = document.querySelectorAll('a, button, input, textarea, .clickable');
 
-        // Check if device supports hover (non-touch screens)
         if (window.matchMedia("(pointer: fine)").matches) {
             document.body.classList.add('hide-default-cursor');
             cursor.style.display = 'block';
@@ -659,7 +683,7 @@
                 });
             });
         } else {
-            cursor.style.display = 'none'; // Keep hidden on mobile/tablets
+            cursor.style.display = 'none';
         }
         
         // 4. Project Slider Logic
@@ -668,7 +692,6 @@
         const nextBtn = document.getElementById('nextProject');
 
         if (slider && prevBtn && nextBtn) {
-            // Get the width of one card + the gap (24px)
             const getScrollAmount = () => {
                 const card = slider.querySelector('a');
                 return card ? card.offsetWidth + 24 : 374; 
@@ -684,7 +707,7 @@
         }
     </script>
     
-    <!-- ADDED: Vercel Analytics Manual Script for Plain HTML -->
+    <!-- Vercel Analytics -->
     <script defer src="/_vercel/insights/script.js"></script>
 
 </body>
