@@ -1,0 +1,19 @@
+{
+  "name": "cjsicson",
+  "version": "1.0.0",
+  "description": "CJ Sicson Portfolio Website",
+  "scripts": {
+    "build": "echo 'Static HTML site - no build needed'",
+    "dev": "npx serve .",
+    "lint": "echo 'No linting configured'"
+  },
+  "keywords": [
+    "portfolio",
+    "static-site"
+  ],
+  "author": "CJ Sicson",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/speed-insights": "^1.0.0"
+  }
+}
