@@ -92,6 +92,15 @@
             background-color: rgba(37, 99, 235, 0.2);
             border: 0.5px solid rgba(37, 99, 235, 0.5);
         }
+
+        /* 3. HIDE SCROLLBAR FOR PROJECT SLIDER */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
     </style>
 </head>
 <body class="bg-lightBg text-textMuted font-sans antialiased selection:bg-primary selection:text-white overflow-x-hidden">
@@ -298,16 +307,33 @@
         </div>
     </section>
 
-    <!-- WEBSITE WORKS & PROJECTS SECTION -->
-    <section id="works" class="py-16 lg:py-24 px-6 bg-altBg border-y border-slate-200">
+    <!-- WEBSITE WORKS & PROJECTS SLIDER -->
+    <section id="works" class="py-16 lg:py-24 px-6 bg-altBg border-y border-slate-200 overflow-hidden">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-2xl font-bold text-textMain mb-4 text-center tracking-wide uppercase" data-aos="fade-up">My Web Projects</h2>
-            <p class="text-center text-textMuted font-medium mb-12 lg:mb-16 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">A collection of my custom WordPress sites and web designs.</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Header with Navigation Arrows -->
+            <div class="flex flex-col sm:flex-row justify-between items-end mb-10 gap-6" data-aos="fade-up">
+                <div>
+                    <h2 class="text-2xl font-bold text-textMain tracking-wide uppercase">My Web Projects</h2>
+                    <p class="text-textMuted font-medium mt-2">Swipe or use arrows to explore my WordPress builds.</p>
+                </div>
+                
+                <!-- Slider Controls (Hidden on mobile where they can just swipe) -->
+                <div class="hidden sm:flex gap-3">
+                    <button id="prevProject" class="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 clickable shadow-sm">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button id="nextProject" class="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 clickable shadow-sm">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Slider Track -->
+            <div id="projectSlider" class="flex overflow-x-auto gap-6 snap-x snap-mandatory no-scrollbar pb-8 pt-4 -mx-6 px-6 lg:mx-0 lg:px-0" data-aos="fade-up" data-aos-delay="100">
                 
                 <!-- Project 1: HBRMO -->
-                <a href="https://hbrmo.com" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
+                <a href="https://hbrmo.com" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
                         <img src="10HBRMO.png" alt="HBRMO" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
@@ -319,19 +345,19 @@
                 </a>
 
                 <!-- Project 2: Neun Farben -->
-                <a href="https://neun.ph" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
+                <a href="https://neun.ph" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
                         <img src="9NF.png" alt="Neun Farben" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-lg font-bold text-textMain mb-2 group-hover:text-primary transition-colors">Neun Farben</h3>
-                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">From the Philippines to the World: Crafting stunning 2D/3D art, animation, and game experiences for studios, brands, and creators anywhere.</p>
+                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">From the Philippines to the World: Crafting stunning 2D/3D art, animation, and game experiences for studios everywhere.</p>
                         <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
 
                 <!-- Project 3: The Grooming Table -->
-                <a href="https://www.thegroomingtable.com.sg/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
+                <a href="https://www.thegroomingtable.com.sg/" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
                         <img src="1TGT.png" alt="The Grooming Table" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
@@ -343,85 +369,85 @@
                 </a>
 
                 <!-- Project 4: Max My Profit -->
-                <a href="https://maxmyprofit.com.au/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
+                <a href="https://maxmyprofit.com.au/" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
                         <img src="2MMP.png" alt="Max My Profit" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-lg font-bold text-textMain mb-2 group-hover:text-primary transition-colors">Max My Profit</h3>
-                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Join the Max Business Academy and before you know it, you’ll be running a Profitable Business that doesn’t rely on YOU having to do all the work.</p>
+                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Join the Max Business Academy and before you know it, you’ll be running a Profitable Business that doesn’t rely on YOU.</p>
                         <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
 
                 <!-- Project 5: GHLUX -->
-                <a href="https://www.ghluxproperties.com/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
+                <a href="https://www.ghluxproperties.com/" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
                         <img src="3GHLUX.png" alt="GHLUX Properties" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-lg font-bold text-textMain mb-2 group-hover:text-primary transition-colors">GHLUX Properties</h3>
-                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">With our luxurious short-term rentals and Airbnb, you will have a relaxing experience like no other. We prioritize our customers’ experiences.</p>
+                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">With our luxurious short-term rentals and Airbnb, you will have a relaxing experience like no other.</p>
                         <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
 
                 <!-- Project 6: Moonman Studio -->
-                <a href="https://moonmanstudio.space/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
+                <a href="https://moonmanstudio.space/" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
                         <img src="4MMS.png" alt="Moonman Studio" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-lg font-bold text-textMain mb-2 group-hover:text-primary transition-colors">Moonman Studio</h3>
-                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Our mission is to help good food brands go from where they are to where their customers are. Accelerating the success of F&B brands.</p>
+                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Our mission is to help good food brands go from where they are to where their customers are.</p>
                         <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
 
                 <!-- Project 7: Strong Work MD -->
-                <a href="https://www.strongworkmd.com/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
+                <a href="https://www.strongworkmd.com/" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
                         <img src="5SSMD.png" alt="Strong Work MD" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-lg font-bold text-textMain mb-2 group-hover:text-primary transition-colors">Strong Work MD</h3>
-                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Always free for physicians, a fraction of the cost for groups. For physicians by physicians. Let us help you find the right group.</p>
+                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Always free for physicians, a fraction of the cost for groups. Let us help you find the right group.</p>
                         <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
 
                 <!-- Project 8: Aria Networks -->
-                <a href="https://www.aria-networks.com/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
+                <a href="https://www.aria-networks.com/" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
                         <img src="6AN.png" alt="Aria Networks" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-lg font-bold text-textMain mb-2 group-hover:text-primary transition-colors">Aria Networks</h3>
-                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Aria Networks is a network simulation, visualization, forecasting and optimization software provider to telecommunications and 5G networks.</p>
+                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">A network simulation, visualization, forecasting and optimization software provider to telecommunications and 5G networks.</p>
                         <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
 
                 <!-- Project 9: Transcend -->
-                <a href="https://transcendgroup.co/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
+                <a href="https://transcendgroup.co/" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
                         <img src="7TS.png" alt="Transcend" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-lg font-bold text-textMain mb-2 group-hover:text-primary transition-colors">Transcend</h3>
-                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Be an Influencer. By working with the Transcend team, you will be able to reach across hundreds of millions of people in various markets.</p>
+                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Be an Influencer. By working with the Transcend team, you will be able to reach across hundreds of millions of people.</p>
                         <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
 
                 <!-- Project 10: RVRA -->
-                <a href="https://rvradigital.com/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
+                <a href="https://rvradigital.com/" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
                         <img src="8RVRA.png" alt="RVRA" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-lg font-bold text-textMain mb-2 group-hover:text-primary transition-colors">RVRA Digital</h3>
-                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">High Quality Leads For Real Estate Investors. Even in the softening real estate market we are converting ad spend into an ROI.</p>
+                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">High Quality Leads For Real Estate Investors. Converting ad spend into an ROI, even in a softening market.</p>
                         <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
@@ -437,7 +463,13 @@
 
             <!-- Neun Farben Corp -->
             <div class="relative border-l-2 border-slate-200 ml-2 sm:ml-4 pl-6 sm:pl-8 mb-12 lg:mb-14 hover:border-primary transition-colors duration-500 clickable" data-aos="fade-up" data-aos-delay="100">
-                <div class="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-1 shadow-sm"></div>
+                
+                <!-- NEW: Active Server Pulse -->
+                <div class="absolute -left-[9px] top-1 flex h-4 w-4">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-50"></span>
+                    <span class="relative inline-flex rounded-full h-4 w-4 bg-primary shadow-sm"></span>
+                </div>
+
                 <h3 class="text-lg sm:text-xl font-bold text-textMain">IT Systems Administrator (IT Generalist)</h3>
                 <h4 class="text-sm font-bold text-black mb-3 tracking-wide">Neun Farben Corp | 2023 – Present</h4>
                 <p class="text-sm text-textMuted font-medium leading-relaxed mb-4">Handled IT support tickets using NinjaOne. Set up laptops automatically and installed software remotely using Intune, NinjaOne, and Heimdal.</p>
@@ -628,6 +660,27 @@
             });
         } else {
             cursor.style.display = 'none'; // Keep hidden on mobile/tablets
+        }
+        
+        // 4. Project Slider Logic
+        const slider = document.getElementById('projectSlider');
+        const prevBtn = document.getElementById('prevProject');
+        const nextBtn = document.getElementById('nextProject');
+
+        if (slider && prevBtn && nextBtn) {
+            // Get the width of one card + the gap (24px)
+            const getScrollAmount = () => {
+                const card = slider.querySelector('a');
+                return card ? card.offsetWidth + 24 : 374; 
+            };
+
+            nextBtn.addEventListener('click', () => {
+                slider.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+            });
+
+            prevBtn.addEventListener('click', () => {
+                slider.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+            });
         }
     </script>
     
