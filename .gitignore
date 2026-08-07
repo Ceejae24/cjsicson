@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Package manager lock files (keep package-lock.json for npm)
+# Uncomment if using other package managers:
+# yarn.lock
+# pnpm-lock.yaml
+# bun.lockb
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.turbo/
+
+# Cache directories
+.cache/
+.vercel/
+.parcel-cache/
+
+# Build info files
+*.tsbuildinfo
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
