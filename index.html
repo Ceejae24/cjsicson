@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CJ Sicson | IT Lead & WordPress Front-End Dev</title>
     
-    <!-- FAVICON (Browser Tab Icon) -->
-    <link rel="icon" type="image/png" href="image_6f6139.png">
+    <!-- FAVICON (Browser Tab Icon) - UPDATED -->
+    <link rel="icon" type="image/png" href="favicon.png">
     
     <!-- Smooth Scroll Animations (AOS Library CSS) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -27,7 +27,7 @@
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
                         lightBg: '#ffffff',     // Crisp White
-                        altBg: '#f8fafc',       // Ultra-light minimalist slate/off-white for alternating sections
+                        altBg: '#f8fafc',        // Ultra-light minimalist slate/off-white for alternating sections
                         darkBg: '#000000',      // Pure Black for the banner
                         darkTextMain: '#ffffff', // White text
                         darkTextMuted: '#a3a3a3', // Neutral light gray text
@@ -512,8 +512,12 @@
             <p class="text-textMuted font-medium mb-10" data-aos="fade-up" data-aos-delay="100">Have a project in mind, need an infrastructure overhaul, or looking for a remote IT Lead? Drop me a message.</p>
             
             <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6 text-left" data-aos="fade-up" data-aos-delay="200">
-                <input type="hidden" name="access_key" value="61e32a56-8e46-4203-a756-2768ddc37b24">
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
                 
+                <!-- NEW ADDITION: Redirect after form submission -->
+                <!-- Important: Replace the value below with your actual live domain url -->
+                <input type="hidden" name="redirect" value="https://yourwebsite.com">
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-xs font-bold text-black uppercase tracking-wider mb-2">Name</label>
@@ -629,6 +633,9 @@
             cursor.style.display = 'none'; // Keep hidden on mobile/tablets
         }
     </script>
+    
+    <!-- ADDED: Vercel Analytics Manual Script for Plain HTML -->
+    <script defer src="/_vercel/insights/script.js"></script>
 
 </body>
 </html>
