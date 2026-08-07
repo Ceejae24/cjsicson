@@ -1,0 +1,13 @@
+{
+  "name": "cjsicson-portfolio",
+  "version": "1.0.0",
+  "description": "CJ Sicson Portfolio Website",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'No build step required for static HTML'"
+  },
+  "dependencies": {
+    "@vercel/speed-insights": "^1.0.0"
+  }
+}
