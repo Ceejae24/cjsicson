@@ -433,39 +433,55 @@
         </div>
     </section>
 
-    <!-- NEW SERVICES SECTION -->
+    <!-- NEW SERVICES SECTION (POPUP STYLE) -->
     <section id="services" class="py-16 lg:py-24 px-6 bg-altBg border-y border-slate-200">
-        <div class="max-w-6xl mx-auto">
+        <div class="max-w-5xl mx-auto">
             <h2 class="text-2xl font-bold text-textMain mb-12 lg:mb-16 text-center tracking-wide uppercase" data-aos="fade-up">My Services</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 
-                <!-- Service 1 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fa-solid fa-network-wired text-3xl text-primary mb-6 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-xl font-bold text-textMain mb-3">Remote IT Administration</h3>
-                    <p class="text-sm text-textMuted leading-relaxed">Comprehensive remote administration aligned with <strong class="text-black">ITIL v4 Foundation</strong> best practices. I specialize in Microsoft 365, Google Workspace, and Entra ID (Azure AD), ensuring standardized, high-quality IT service delivery for global teams.</p>
+                <!-- Service Card 1 -->
+                <div class="bg-white p-10 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
+                     data-icon="fa-network-wired"
+                     data-title="Remote IT Administration" 
+                     data-desc="Comprehensive remote administration aligned with <strong class='text-black'>ITIL v4 Foundation</strong> best practices. I specialize in Microsoft 365, Google Workspace, and Entra ID (Azure AD), ensuring standardized, high-quality IT service delivery for global teams."
+                     data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-network-wired text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-textMain">Remote IT Administration</h3>
+                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Details</span>
                 </div>
 
-                <!-- Service 2 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fa-solid fa-laptop-file text-3xl text-primary mb-6 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-xl font-bold text-textMain mb-3">Software & Hardware Auditing</h3>
-                    <p class="text-sm text-textMuted leading-relaxed">Conducting rigorous remote audits and lifecycle management of company assets. I utilize a secure, self-hosted inventory server alongside modern MDM tools for automated tracking, zero-touch provisioning, and patch management.</p>
+                <!-- Service Card 2 -->
+                <div class="bg-white p-10 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
+                     data-icon="fa-laptop-file"
+                     data-title="Software & Hardware Auditing" 
+                     data-desc="Conducting rigorous remote audits and lifecycle management of company assets. I utilize a secure, self-hosted inventory server alongside modern MDM tools for automated tracking, zero-touch provisioning, and patch management."
+                     data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-laptop-file text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-textMain">Software & Hardware Auditing</h3>
+                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Details</span>
                 </div>
 
-                <!-- Service 3 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fa-solid fa-shield-halved text-3xl text-primary mb-6 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-xl font-bold text-textMain mb-3">Security, Compliance & Backups</h3>
-                    <p class="text-sm text-textMuted leading-relaxed">Proactive security monitoring, strict Zero Trust policy enforcement, and resilient automated backups (NAS/Cloud) to prevent data loss. As a DPO Champion, I ensure your infrastructure perfectly aligns with modern compliance standards.</p>
+                <!-- Service Card 3 -->
+                <div class="bg-white p-10 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
+                     data-icon="fa-shield-halved"
+                     data-title="Security & Compliance" 
+                     data-desc="Proactive security monitoring, strict Zero Trust policy enforcement, and resilient automated backups (NAS/Cloud) to prevent data loss. As a DPO Champion, I ensure your infrastructure perfectly aligns with modern compliance standards."
+                     data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-shield-halved text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-textMain">Security & Compliance</h3>
+                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Details</span>
                 </div>
 
-                <!-- Service 4 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="400">
-                    <i class="fa-solid fa-laptop-code text-3xl text-primary mb-6 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-xl font-bold text-textMain mb-3">Website Front-End Engineering</h3>
-                    <p class="text-sm text-textMuted leading-relaxed">Designing and developing high-performance, fully responsive websites. I bridge the gap between creative UI/UX design and secure, technically optimized web architecture.</p>
+                <!-- Service Card 4 -->
+                <div class="bg-white p-10 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
+                     data-icon="fa-laptop-code"
+                     data-title="Website Front-End Dev" 
+                     data-desc="Designing and developing high-performance, fully responsive websites. I bridge the gap between creative UI/UX design and secure, technically optimized web architecture."
+                     data-aos="fade-up" data-aos-delay="400">
+                    <i class="fa-solid fa-laptop-code text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-textMain">Website Front-End Dev</h3>
+                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Details</span>
                 </div>
 
             </div>
@@ -555,6 +571,25 @@
         </div>
     </footer>
 
+    <!-- DYNAMIC SERVICES MODAL -->
+    <div id="serviceModal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4">
+        <!-- Dark Background Overlay -->
+        <div id="modalBackdrop" class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity opacity-0 clickable cursor-pointer"></div>
+        
+        <!-- Modal Content Box -->
+        <div id="modalContent" class="relative bg-white rounded-2xl p-8 sm:p-10 max-w-lg w-full shadow-2xl transform scale-95 opacity-0 transition-all duration-300 z-10 border border-slate-200 text-center">
+            <!-- Close Button -->
+            <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-primary transition-colors clickable p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            
+            <!-- Injected Icon, Title, and Description -->
+            <i id="modalIcon" class="fa-solid text-4xl text-primary mb-5"></i>
+            <h3 id="modalTitle" class="text-2xl font-bold text-textMain mb-4"></h3>
+            <p id="modalDesc" class="text-sm text-textMuted leading-relaxed"></p>
+        </div>
+    </div>
+
     <!-- BACK TO TOP BUTTON -->
     <button id="backToTop" class="fixed bottom-8 right-8 z-50 bg-black text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 translate-y-10 pointer-events-none hover:bg-primary hover:scale-110 clickable">
         <i class="fa-solid fa-arrow-up"></i>
@@ -613,7 +648,65 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // 3. Custom Agency Cursor Logic
+        // 3. Services Popup Modal Logic
+        const serviceTriggers = document.querySelectorAll('.service-trigger');
+        const serviceModal = document.getElementById('serviceModal');
+        const modalBackdrop = document.getElementById('modalBackdrop');
+        const modalContent = document.getElementById('modalContent');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalIcon = document.getElementById('modalIcon');
+        const closeModalBtn = document.getElementById('closeModal');
+
+        const openModal = (iconClass, title, desc) => {
+            // Update Content
+            modalIcon.className = `fa-solid ${iconClass} text-5xl text-primary mb-5`;
+            modalTitle.innerHTML = title;
+            modalDesc.innerHTML = desc;
+            
+            // Show modal (remove hidden, add flex)
+            serviceModal.classList.remove('hidden');
+            serviceModal.classList.add('flex');
+            
+            // Tiny delay to allow display:flex to apply before animating opacity/scale
+            setTimeout(() => {
+                modalBackdrop.classList.remove('opacity-0');
+                modalBackdrop.classList.add('opacity-100');
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        };
+
+        const closeModal = () => {
+            // Animate out
+            modalBackdrop.classList.remove('opacity-100');
+            modalBackdrop.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            
+            // Wait for animation to finish before hiding element
+            setTimeout(() => {
+                serviceModal.classList.add('hidden');
+                serviceModal.classList.remove('flex');
+            }, 300);
+        };
+
+        // Attach Event Listeners to cards
+        serviceTriggers.forEach(card => {
+            card.addEventListener('click', () => {
+                openModal(
+                    card.getAttribute('data-icon'), 
+                    card.getAttribute('data-title'), 
+                    card.getAttribute('data-desc')
+                );
+            });
+        });
+
+        // Attach close events
+        closeModalBtn.addEventListener('click', closeModal);
+        modalBackdrop.addEventListener('click', closeModal);
+
+        // 4. Custom Agency Cursor Logic
         const cursor = document.getElementById('custom-cursor');
         const clickables = document.querySelectorAll('a, button, input, textarea, .clickable');
 
@@ -626,26 +719,30 @@
                 cursor.style.top = e.clientY + 'px';
             });
 
-            clickables.forEach((el) => {
-                el.addEventListener('mouseenter', () => {
-                    cursor.classList.add('cursor-hover');
+            // Need a mutation observer or manual re-attachment if dynamic elements are added, 
+            // but for standard static page this works well.
+            const attachCursorEvents = (elements) => {
+                elements.forEach((el) => {
+                    el.addEventListener('mouseenter', () => {
+                        cursor.classList.add('cursor-hover');
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        cursor.classList.remove('cursor-hover');
+                    });
                 });
-                el.addEventListener('mouseleave', () => {
-                    cursor.classList.remove('cursor-hover');
-                });
-            });
+            };
+            attachCursorEvents(clickables);
         } else {
             cursor.style.display = 'none'; 
         }
 
-        // 4. Custom Infinite Looping & Auto-Play Slider Logic
+        // 5. Custom Infinite Looping & Auto-Play Slider Logic
         const slider = document.getElementById('projectsSlider');
         const slideLeft = document.getElementById('slideLeft');
         const slideRight = document.getElementById('slideRight');
         let autoPlayInterval;
 
         if(slideLeft && slideRight && slider) {
-            
             const scrollRight = () => {
                 if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
                     slider.scrollTo({ left: 0, behavior: 'smooth' });
