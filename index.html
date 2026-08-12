@@ -123,6 +123,13 @@
         <!-- Logo -->
         <a href="#" class="text-xl lg:text-2xl font-bold text-black tracking-widest hover:text-primary transition-colors">CJ<span class="text-primary">.</span></a>
         
+        <!-- Desktop Links -->
+        <div class="hidden md:flex gap-8 text-sm font-bold text-gray-500 uppercase tracking-widest">
+            <a href="#about" class="hover:text-black transition-colors clickable">About</a>
+            <a href="#works" class="hover:text-black transition-colors clickable">Projects</a>
+            <a href="#services" class="hover:text-black transition-colors clickable">Services</a>
+        </div>
+
         <!-- CTA Buttons -->
         <div class="flex items-center gap-4">
             <a href="CV_Sicson.pdf" download class="hidden sm:block text-xs font-bold text-gray-500 hover:text-primary uppercase tracking-wider transition-colors clickable"><i class="fa-solid fa-download mr-1"></i> CV</a>
@@ -313,29 +320,29 @@
         </div>
     </section>
 
-    <!-- WEBSITE WORKS & PROJECTS SECTION (NOW A SLIDER) -->
+    <!-- WEBSITE WORKS & PROJECTS SECTION (INFINITE LOOPING SLIDER WITH ARROWS) -->
     <section id="works" class="py-16 lg:py-24 bg-altBg border-y border-slate-200 overflow-hidden relative">
         <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-2xl font-bold text-textMain mb-4 text-center tracking-wide uppercase" data-aos="fade-up">WordPress Front-End Projects</h2>
             <p class="text-center text-textMuted font-medium mb-10 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">A curated selection of my custom WordPress engineering, responsive front-end designs, and UI/UX optimization.</p>
         </div>
         
-        <!-- Slider Wrapper with Arrows -->
-        <div class="relative max-w-[1400px] mx-auto group">
+        <!-- Slider Wrapper with ALWAYS VISIBLE Arrows -->
+        <div class="relative max-w-[1400px] mx-auto" data-aos="fade-up" data-aos-delay="200">
             
-            <!-- Custom Navigation Arrows (Desktop Only) -->
-            <button id="slideLeft" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur border border-slate-200 shadow-lg w-12 h-12 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all opacity-0 group-hover:opacity-100 hidden md:flex clickable">
+            <!-- Custom Navigation Arrows (Now always visible!) -->
+            <button id="slideLeft" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 bg-white border border-slate-200 shadow-xl w-12 h-12 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white hover:scale-110 transition-all clickable">
                 <i class="fa-solid fa-chevron-left"></i>
             </button>
-            <button id="slideRight" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur border border-slate-200 shadow-lg w-12 h-12 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all opacity-0 group-hover:opacity-100 hidden md:flex clickable">
+            <button id="slideRight" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 bg-white border border-slate-200 shadow-xl w-12 h-12 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white hover:scale-110 transition-all clickable">
                 <i class="fa-solid fa-chevron-right"></i>
             </button>
 
             <!-- Scrolling Container -->
-            <div id="projectsSlider" class="flex overflow-x-auto gap-6 snap-x snap-mandatory hide-scroll-bar pb-10 pt-4 px-6 md:px-16 scroll-smooth" data-aos="fade-up" data-aos-delay="200">
+            <div id="projectsSlider" class="flex overflow-x-auto gap-6 snap-x snap-mandatory hide-scroll-bar pb-10 pt-4 px-6 md:px-24 scroll-smooth">
                 
                 <!-- Project 1: HBRMO -->
-                <a href="https://hbrmo.com" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                <a href="https://hbrmo.com" target="_blank" class="block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="10HBRMO.png" alt="HBRMO" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
@@ -347,7 +354,7 @@
                 </a>
 
                 <!-- Project 2: Neun Farben -->
-                <a href="https://neun.ph" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                <a href="https://neun.ph" target="_blank" class="block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="9NF.png" alt="Neun Farben" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
@@ -359,7 +366,7 @@
                 </a>
 
                 <!-- Project 3: The Grooming Table -->
-                <a href="https://www.thegroomingtable.com.sg/" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                <a href="https://www.thegroomingtable.com.sg/" target="_blank" class="block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="1TGT.png" alt="The Grooming Table" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
@@ -371,7 +378,7 @@
                 </a>
 
                 <!-- Project 4: Max My Profit -->
-                <a href="https://maxmyprofit.com.au/" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                <a href="https://maxmyprofit.com.au/" target="_blank" class="block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="2MMP.png" alt="Max My Profit" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
@@ -383,7 +390,7 @@
                 </a>
 
                 <!-- Project 5: GHLUX -->
-                <a href="https://www.ghluxproperties.com/" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                <a href="https://www.ghluxproperties.com/" target="_blank" class="block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="3GHLUX.png" alt="GHLUX Properties" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
@@ -395,7 +402,7 @@
                 </a>
 
                 <!-- Project 6: Moonman Studio -->
-                <a href="https://moonmanstudio.space/" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                <a href="https://moonmanstudio.space/" target="_blank" class="block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="4MMS.png" alt="Moonman Studio" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
@@ -407,7 +414,7 @@
                 </a>
 
                 <!-- Project 7: Strong Work MD -->
-                <a href="https://www.strongworkmd.com/" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                <a href="https://www.strongworkmd.com/" target="_blank" class="block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="5SSMD.png" alt="Strong Work MD" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
@@ -419,7 +426,7 @@
                 </a>
 
                 <!-- Project 8: Aria Networks -->
-                <a href="https://www.aria-networks.com/" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                <a href="https://www.aria-networks.com/" target="_blank" class="block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="6AN.png" alt="Aria Networks" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
@@ -431,7 +438,7 @@
                 </a>
 
                 <!-- Project 9: Transcend -->
-                <a href="https://transcendgroup.co/" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                <a href="https://transcendgroup.co/" target="_blank" class="block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="7TS.png" alt="Transcend" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
@@ -443,7 +450,7 @@
                 </a>
 
                 <!-- Project 10: RVRA -->
-                <a href="https://rvradigital.com/" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                <a href="https://rvradigital.com/" target="_blank" class="block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="8RVRA.png" alt="RVRA" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
@@ -605,11 +612,10 @@
         const parallaxElements = document.querySelectorAll('.parallax');
         const scrollProgress = document.getElementById('scrollProgress');
 
-        // 2. Scroll Events (Navbar, Back to top, Parallax, Progress bar)
+        // 2. Scroll Events
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
 
-            // Scroll Progress Bar Logic
             const totalScroll = document.documentElement.scrollTop;
             const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrollPercent = `${(totalScroll / windowHeight) * 100}%`;
@@ -664,18 +670,55 @@
             cursor.style.display = 'none'; 
         }
 
-        // 4. Custom Slider Navigation Logic
+        // 4. Custom Infinite Looping & Auto-Play Slider Logic
         const slider = document.getElementById('projectsSlider');
         const slideLeft = document.getElementById('slideLeft');
         const slideRight = document.getElementById('slideRight');
+        let autoPlayInterval;
 
         if(slideLeft && slideRight && slider) {
-            slideLeft.addEventListener('click', () => {
-                slider.scrollBy({ left: -380, behavior: 'smooth' });
-            });
-            slideRight.addEventListener('click', () => {
-                slider.scrollBy({ left: 380, behavior: 'smooth' });
-            });
+            
+            // Function to handle the Right click / Auto scroll
+            const scrollRight = () => {
+                // If we are at the very end of the slider, loop back to the start smoothly
+                if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
+                    slider.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    slider.scrollBy({ left: 380, behavior: 'smooth' });
+                }
+            };
+
+            // Function to handle the Left click
+            const scrollLeft = () => {
+                // If we are at the very start, jump to the end
+                if (slider.scrollLeft <= 0) {
+                    slider.scrollTo({ left: slider.scrollWidth, behavior: 'smooth' });
+                } else {
+                    slider.scrollBy({ left: -380, behavior: 'smooth' });
+                }
+            };
+
+            // Arrow Event Listeners
+            slideLeft.addEventListener('click', scrollLeft);
+            slideRight.addEventListener('click', scrollRight);
+
+            // Auto-Play Feature (Scrolls every 3 seconds)
+            const startAutoPlay = () => {
+                autoPlayInterval = setInterval(scrollRight, 3000);
+            };
+
+            const stopAutoPlay = () => {
+                clearInterval(autoPlayInterval);
+            };
+
+            // Start autoplay immediately
+            startAutoPlay();
+
+            // Pause auto-play if the user hovers or touches the slider so they can read!
+            slider.addEventListener('mouseenter', stopAutoPlay);
+            slider.addEventListener('mouseleave', startAutoPlay);
+            slider.addEventListener('touchstart', stopAutoPlay);
+            slider.addEventListener('touchend', startAutoPlay);
         }
     </script>
 
