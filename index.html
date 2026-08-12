@@ -69,6 +69,15 @@
             background: #1d4ed8;
         }
 
+        /* HIDE SCROLLBAR FOR THE SLIDER BUT KEEP FUNCTIONALITY */
+        .hide-scroll-bar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .hide-scroll-bar::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
+        }
+
         /* CUSTOM AGENCY CURSOR CSS */
         .hide-default-cursor, .hide-default-cursor * {
             cursor: none !important;
@@ -114,7 +123,7 @@
         <!-- Logo -->
         <a href="#" class="text-xl lg:text-2xl font-bold text-black tracking-widest hover:text-primary transition-colors">CJ<span class="text-primary">.</span></a>
         
-        <!-- CTA Buttons Only -->
+        <!-- CTA Buttons -->
         <div class="flex items-center gap-4">
             <a href="CV_Sicson.pdf" download class="hidden sm:block text-xs font-bold text-gray-500 hover:text-primary uppercase tracking-wider transition-colors clickable"><i class="fa-solid fa-download mr-1"></i> CV</a>
             <a href="#contact" class="bg-black text-white text-xs lg:text-sm font-bold py-2 px-5 rounded-md hover:bg-primary transition-colors uppercase tracking-wider shadow-md clickable">Let's Talk</a>
@@ -304,17 +313,30 @@
         </div>
     </section>
 
-    <!-- WEBSITE WORKS & PROJECTS SECTION -->
-    <section id="works" class="py-16 lg:py-24 px-6 bg-altBg border-y border-slate-200">
-        <div class="max-w-6xl mx-auto">
+    <!-- WEBSITE WORKS & PROJECTS SECTION (NOW A SLIDER) -->
+    <section id="works" class="py-16 lg:py-24 bg-altBg border-y border-slate-200 overflow-hidden relative">
+        <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-2xl font-bold text-textMain mb-4 text-center tracking-wide uppercase" data-aos="fade-up">WordPress Front-End Projects</h2>
-            <p class="text-center text-textMuted font-medium mb-12 lg:mb-16 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">A curated selection of my custom WordPress engineering, responsive front-end designs, and UI/UX optimization.</p>
+            <p class="text-center text-textMuted font-medium mb-10 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">A curated selection of my custom WordPress engineering, responsive front-end designs, and UI/UX optimization.</p>
+        </div>
+        
+        <!-- Slider Wrapper with Arrows -->
+        <div class="relative max-w-[1400px] mx-auto group">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Custom Navigation Arrows (Desktop Only) -->
+            <button id="slideLeft" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur border border-slate-200 shadow-lg w-12 h-12 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all opacity-0 group-hover:opacity-100 hidden md:flex clickable">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button id="slideRight" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur border border-slate-200 shadow-lg w-12 h-12 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all opacity-0 group-hover:opacity-100 hidden md:flex clickable">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <!-- Scrolling Container -->
+            <div id="projectsSlider" class="flex overflow-x-auto gap-6 snap-x snap-mandatory hide-scroll-bar pb-10 pt-4 px-6 md:px-16 scroll-smooth" data-aos="fade-up" data-aos-delay="200">
                 
                 <!-- Project 1: HBRMO -->
-                <a href="https://hbrmo.com" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
-                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
+                <a href="https://hbrmo.com" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="10HBRMO.png" alt="HBRMO" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
@@ -325,8 +347,8 @@
                 </a>
 
                 <!-- Project 2: Neun Farben -->
-                <a href="https://neun.ph" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
-                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
+                <a href="https://neun.ph" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="9NF.png" alt="Neun Farben" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
@@ -337,8 +359,8 @@
                 </a>
 
                 <!-- Project 3: The Grooming Table -->
-                <a href="https://www.thegroomingtable.com.sg/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
-                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
+                <a href="https://www.thegroomingtable.com.sg/" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="1TGT.png" alt="The Grooming Table" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
@@ -349,8 +371,8 @@
                 </a>
 
                 <!-- Project 4: Max My Profit -->
-                <a href="https://maxmyprofit.com.au/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
-                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
+                <a href="https://maxmyprofit.com.au/" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="2MMP.png" alt="Max My Profit" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
@@ -361,8 +383,8 @@
                 </a>
 
                 <!-- Project 5: GHLUX -->
-                <a href="https://www.ghluxproperties.com/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
-                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
+                <a href="https://www.ghluxproperties.com/" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="3GHLUX.png" alt="GHLUX Properties" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
@@ -373,8 +395,8 @@
                 </a>
 
                 <!-- Project 6: Moonman Studio -->
-                <a href="https://moonmanstudio.space/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
-                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
+                <a href="https://moonmanstudio.space/" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="4MMS.png" alt="Moonman Studio" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
@@ -385,8 +407,8 @@
                 </a>
 
                 <!-- Project 7: Strong Work MD -->
-                <a href="https://www.strongworkmd.com/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
-                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
+                <a href="https://www.strongworkmd.com/" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="5SSMD.png" alt="Strong Work MD" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
@@ -397,8 +419,8 @@
                 </a>
 
                 <!-- Project 8: Aria Networks -->
-                <a href="https://www.aria-networks.com/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
-                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
+                <a href="https://www.aria-networks.com/" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="6AN.png" alt="Aria Networks" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
@@ -409,8 +431,8 @@
                 </a>
 
                 <!-- Project 9: Transcend -->
-                <a href="https://transcendgroup.co/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
-                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
+                <a href="https://transcendgroup.co/" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="7TS.png" alt="Transcend" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
@@ -421,8 +443,8 @@
                 </a>
 
                 <!-- Project 10: RVRA -->
-                <a href="https://rvradigital.com/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
-                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
+                <a href="https://rvradigital.com/" target="_blank" class="block w-[85vw] sm:w-[350px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]">
+                    <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="8RVRA.png" alt="RVRA" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
@@ -621,7 +643,6 @@
         const cursor = document.getElementById('custom-cursor');
         const clickables = document.querySelectorAll('a, button, input, textarea, .clickable');
 
-        // Check if device supports hover (non-touch screens)
         if (window.matchMedia("(pointer: fine)").matches) {
             document.body.classList.add('hide-default-cursor');
             cursor.style.display = 'block';
@@ -640,7 +661,21 @@
                 });
             });
         } else {
-            cursor.style.display = 'none'; // Keep hidden on mobile/tablets
+            cursor.style.display = 'none'; 
+        }
+
+        // 4. Custom Slider Navigation Logic
+        const slider = document.getElementById('projectsSlider');
+        const slideLeft = document.getElementById('slideLeft');
+        const slideRight = document.getElementById('slideRight');
+
+        if(slideLeft && slideRight && slider) {
+            slideLeft.addEventListener('click', () => {
+                slider.scrollBy({ left: -380, behavior: 'smooth' });
+            });
+            slideRight.addEventListener('click', () => {
+                slider.scrollBy({ left: 380, behavior: 'smooth' });
+            });
         }
     </script>
 
