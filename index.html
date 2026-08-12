@@ -3,127 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CJ Sicson | IT System Admin & Web Dev</title>
+    <title>CJ Sicson | IT Lead & WordPress Front-End Dev</title>
     
-    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- FAVICON (Browser Tab Icon) -->
+    <link rel="icon" type="image/png" href="image_6f6139.png">
     
-    <!-- Preload critical fonts for speed -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <!-- Smooth Scroll Animations (AOS Library CSS) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS for rapid styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for that clean, minimalist tech look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        lightBg: '#ffffff',
-                        altBg: '#f8fafc',
-                        darkBg: '#000000',
-                        textMain: '#000000',
-                        textMuted: '#525252',
-                        primary: '#2563EB',
-                        online: '#10B981'
+                        lightBg: '#ffffff',     // Crisp White
+                        altBg: '#f8fafc',       // Ultra-light minimalist slate/off-white for alternating sections
+                        darkBg: '#000000',      // Pure Black for the banner
+                        darkTextMain: '#ffffff', // White text
+                        darkTextMuted: '#a3a3a3', // Neutral light gray text
+                        accent: '#000000',      // Pure black for minimal global accents
+                        textMain: '#000000',    // Pure black text for light sections
+                        textMuted: '#525252',   // Dark gray for paragraphs
+                        primary: '#2563EB',     // Crisp, professional Tech Blue
+                        online: '#10B981'       // Emerald green for the active remote status
                     }
                 }
             }
         }
     </script>
     <style>
+        /* Smooth scrolling for anchor links */
         html { scroll-behavior: smooth; }
         
+        /* Custom pulsing for the loader logo */
         @keyframes subtle-pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
-        .animate-subtle-pulse { animation: subtle-pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        .animate-subtle-pulse {
+            animation: subtle-pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
 
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #f8fafc; }
-        ::-webkit-scrollbar-thumb { background: #2563EB; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #1d4ed8; }
+        /* CUSTOM MINIMALIST SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8fafc;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2563EB;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1d4ed8;
+        }
 
-        .hide-default-cursor, .hide-default-cursor * { cursor: none !important; }
+        /* CUSTOM AGENCY CURSOR CSS */
+        .hide-default-cursor, .hide-default-cursor * {
+            cursor: none !important;
+        }
         #custom-cursor {
-            position: fixed; top: 0; left: 0; width: 10px; height: 10px;
-            background-color: #2563EB; border-radius: 50%; pointer-events: none;
-            z-index: 9999; transform: translate(-50%, -50%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            background-color: #2563EB;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
             transition: transform 0.2s ease-out, background-color 0.2s ease-out, border 0.2s ease-out;
-            display: none;
+            display: none; 
         }
         #custom-cursor.cursor-hover {
             transform: translate(-50%, -50%) scale(4);
             background-color: rgba(37, 99, 235, 0.2);
             border: 0.5px solid rgba(37, 99, 235, 0.5);
         }
-
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="bg-lightBg text-textMuted font-sans antialiased selection:bg-primary selection:text-white overflow-x-hidden">
 
+    <!-- THE CUSTOM AGENCY CURSOR -->
     <div id="custom-cursor"></div>
+
+    <!-- THE SCROLL PROGRESS BAR -->
     <div id="scrollProgress" class="fixed top-0 left-0 h-[2px] bg-primary z-[150] w-0 transition-all duration-75"></div>
 
+    <!-- FULL SCREEN PRELOADER -->
     <div id="preloader" class="fixed inset-0 z-[100] bg-darkBg flex items-center justify-center transition-transform duration-[1200ms] ease-in-out">
-        <div class="text-white text-5xl md:text-6xl font-bold tracking-widest animate-subtle-pulse">CJ<span class="text-primary">.</span></div>
+        <div class="text-white text-5xl md:text-6xl font-bold tracking-widest animate-subtle-pulse">
+            CJ<span class="text-primary">.</span>
+        </div>
     </div>
 
+    <!-- GLASSMORPHISM STICKY NAV BAR -->
     <nav id="navbar" class="fixed top-0 left-0 w-full z-[90] bg-white/80 backdrop-blur-md border-b border-slate-200 transition-transform duration-500 -translate-y-full px-6 py-4 flex justify-between items-center shadow-sm mt-[2px]">
+        <!-- Logo -->
         <a href="#" class="text-xl lg:text-2xl font-bold text-black tracking-widest hover:text-primary transition-colors">CJ<span class="text-primary">.</span></a>
+        
+        <!-- Desktop Links -->
+        <div class="hidden md:flex gap-8 text-sm font-bold text-gray-500 uppercase tracking-widest">
+            <a href="#about" class="hover:text-black transition-colors clickable">About</a>
+            <a href="#works" class="hover:text-black transition-colors clickable">Projects</a>
+            <a href="#services" class="hover:text-black transition-colors clickable">Services</a>
+        </div>
+
+        <!-- CTA Buttons -->
         <div class="flex items-center gap-4">
-            <a href="CV_Sicson.pdf" download class="hidden sm:block text-xs font-bold text-gray-500 hover:text-primary uppercase tracking-wider transition-colors"><i class="fa-solid fa-download mr-1"></i> CV</a>
-            <a href="#contact" class="bg-black text-white text-xs lg:text-sm font-bold py-2 px-5 rounded-md hover:bg-primary transition-colors uppercase tracking-wider shadow-md">Let's Talk</a>
+            <a href="CV_Sicson.pdf" download class="hidden sm:block text-xs font-bold text-gray-500 hover:text-primary uppercase tracking-wider transition-colors clickable"><i class="fa-solid fa-download mr-1"></i> CV</a>
+            <a href="#contact" class="bg-black text-white text-xs lg:text-sm font-bold py-2 px-5 rounded-md hover:bg-primary transition-colors uppercase tracking-wider shadow-md clickable">Let's Talk</a>
         </div>
     </nav>
 
+    <!-- HERO SECTION -->
     <header class="relative min-h-[100dvh] lg:min-h-screen flex flex-col lg:flex-row items-center justify-center bg-darkBg overflow-hidden">
+        
+        <!-- TOP LEFT LOGO -->
         <div class="absolute top-8 left-6 lg:top-12 lg:left-12 z-50" data-aos="fade-down" data-aos-delay="200">
             <span class="text-2xl lg:text-3xl font-bold text-white tracking-widest">CJ<span class="text-primary">.</span></span>
         </div>
 
-        <div class="absolute inset-0 z-0 w-full h-full pointer-events-none hidden lg:block overflow-hidden">
-            <div class="parallax absolute top-1/2 right-0 w-[600px] h-[600px] bg-primary rounded-full blur-[150px] opacity-[0.12] -translate-y-1/2 translate-x-1/3" data-speed="0.2"></div>
+        <!-- ALL BLACK BACKGROUND SYSTEM (Desktop) -->
+        <div class="absolute inset-0 z-0 w-full h-full pointer-events-none hidden lg:block">
+            <div class="parallax absolute top-1/2 right-0 w-80 h-80 bg-primary rounded-full blur-[150px] opacity-[0.12] -translate-y-1/2 translate-x-1/2" data-speed="0.2"></div>
         </div>
 
+        <!-- PORTRAIT IMAGE LAYER -->
         <div class="hidden lg:flex absolute inset-0 justify-center items-end z-10 pointer-events-none">
             <img src="Profile Transparent.png" alt="CJ Sicson" class="h-[90%] lg:h-[100%] w-auto max-w-none object-contain object-bottom relative z-10">
         </div>
 
+        <!-- CONTENT GRID -->
         <div class="max-w-7xl mx-auto w-full flex flex-col lg:grid lg:grid-cols-12 items-center lg:px-6 pt-0 lg:pt-28 pb-0 lg:pb-20 relative z-20 pointer-events-auto">
+            
+            <!-- LEFT COLUMN: Intro -->
             <div class="order-1 lg:order-2 w-full lg:w-auto px-6 lg:px-0 pt-32 pb-8 lg:py-0 bg-darkBg lg:bg-transparent lg:col-span-5 lg:col-start-1 flex flex-col justify-center text-center lg:text-left drop-shadow-sm lg:drop-shadow-none">
+                
                 <h1 class="text-4xl sm:text-5xl lg:text-7xl font-light text-white mb-2 tracking-tight" data-aos="fade-up" data-aos-delay="300">
                     Hi, <br class="hidden lg:block"> I'm <span class="font-bold text-white">CJ</span>
                 </h1>
-                
-                <!-- UPDATED BANNER TITLE -->
-                <h2 class="text-lg sm:text-xl lg:text-2xl text-gray-300 font-medium mb-8 mt-2 leading-snug uppercase tracking-wide" data-aos="fade-up" data-aos-delay="400">
-                    IT System Admin <span class="text-primary mx-1">&</span><br class="hidden lg:block">Web Dev
+                <h2 class="text-lg sm:text-xl lg:text-2xl text-gray-300 font-medium mb-8 mt-2 leading-snug" data-aos="fade-up" data-aos-delay="400">
+                    IT Systems Admin <span class="text-primary mx-1">&</span><br class="hidden lg:block">WordPress Front-End Dev
                 </h2>
                 
                 <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4" data-aos="fade-up" data-aos-delay="500">
-                    <a href="#contact" class="bg-white hover:bg-primary hover:text-white text-black font-medium py-3 px-8 rounded-lg transition-all duration-300 shadow-lg text-center clickable">Let's Connect</a>
-                    <a href="CV_Sicson.pdf" download class="bg-transparent border border-gray-500 hover:border-primary text-white hover:bg-primary hover:text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 text-center flex items-center justify-center clickable"><i class="fa-solid fa-file-pdf mr-2"></i> Download CV</a>
+                    <a href="#contact" class="bg-white hover:bg-primary hover:text-white text-black font-medium py-3 px-8 rounded-lg transition-all duration-300 shadow-lg text-center clickable">
+                        Let's Connect
+                    </a>
+                    <a href="CV_Sicson.pdf" download class="bg-transparent border border-gray-500 hover:border-primary text-white hover:bg-primary hover:text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 text-center flex items-center justify-center clickable">
+                        <i class="fa-solid fa-file-pdf mr-2"></i> Download CV
+                    </a>
+                </div>
+
+                <!-- Social Icons -->
+                <div class="flex gap-6 mt-10 lg:mt-12 justify-center lg:justify-start text-gray-400" data-aos="fade-up" data-aos-delay="600">
+                    <a href="https://www.linkedin.com/in/cristine-jhoy-sicson-91822616b/" target="_blank" class="hover:text-primary transition-colors clickable"><i class="fa-brands fa-linkedin text-2xl"></i></a>
+                    <a href="#contact" class="hover:text-primary transition-colors clickable"><i class="fa-solid fa-envelope text-2xl"></i></a>
                 </div>
             </div>
 
+            <!-- MOBILE IMAGE -->
             <div class="order-2 lg:hidden w-full flex justify-center bg-darkBg px-6 pt-6 pb-0">
                 <img src="Profile Transparent.png" alt="CJ Sicson" class="h-[300px] sm:h-[380px] w-auto object-contain object-bottom drop-shadow-2xl" data-aos="zoom-in" data-aos-delay="400">
             </div>
 
+            <!-- RIGHT COLUMN: Bio -->
             <div class="order-3 w-full lg:w-auto px-6 lg:px-0 pt-10 pb-16 lg:py-0 bg-lightBg lg:bg-transparent lg:col-span-4 lg:col-start-9 lg:pl-6 xl:pl-10 flex flex-col justify-center text-center lg:text-left drop-shadow-sm lg:drop-shadow-none relative">
+                
                 <div class="parallax hidden lg:block absolute -top-16 right-20 w-14 h-14 border-2 border-white rounded-full opacity-10" data-speed="-0.15"></div>
                 <div class="parallax hidden lg:block absolute top-10 right-8 w-4 h-4 bg-primary rounded-full shadow-lg opacity-40" data-speed="0.25"></div>
 
+                <!-- LOCATION & REMOTE BADGE -->
                 <div class="flex flex-wrap justify-center lg:justify-start items-center gap-3 mb-4" data-aos="fade-up" data-aos-delay="400">
                     <p class="text-gray-500 lg:text-gray-400 text-xs font-bold tracking-[0.2em] uppercase">Based in Philippines</p>
+                    
                     <span class="flex items-center gap-1.5 px-3 py-1 border border-black/10 lg:border-gray-500/50 rounded-full bg-altBg lg:bg-transparent cursor-default">
                         <span class="w-1.5 h-1.5 rounded-full bg-online animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)]"></span>
                         <span class="text-[10px] font-bold tracking-[0.15em] uppercase text-textMain lg:text-white">100% Remote</span>
@@ -131,12 +197,10 @@
                 </div>
 
                 <h3 class="text-2xl md:text-3xl text-textMain lg:text-white font-semibold mb-6 leading-tight" data-aos="fade-up" data-aos-delay="500">
-                    I keep IT systems safe and build fast Websites
+                    I secure IT infrastructures & build dynamic WordPress sites.
                 </h3>
-                
-                <!-- UPDATED HERO PARAGRAPH -->
                 <p class="text-sm md:text-base font-normal leading-relaxed mb-8 text-textMuted lg:text-gray-300" data-aos="fade-up" data-aos-delay="600">
-                    Need an IT to create and secure your Infrastructure or build a great custom Website? Let's work together.
+                    Are you looking for an IT Lead to engineer a Zero Trust environment or develop custom, high-performance WordPress front-end experiences? Let's build something that works flawlessly.
                 </p>
                 
                 <div class="flex justify-center lg:justify-start" data-aos="fade-up" data-aos-delay="700">
@@ -145,98 +209,86 @@
                     </a>
                 </div>
             </div>
+
         </div>
     </header>
 
+    <!-- CORE COMPETENCIES SECTION -->
     <section class="py-16 lg:py-24 px-6 bg-altBg border-b border-slate-200">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-2xl font-bold text-textMain mb-12 text-center tracking-wide uppercase" data-aos="fade-up">My Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- 1 -->
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl font-bold text-textMain mb-12 text-center tracking-wide uppercase" data-aos="fade-up">Technical Arsenal</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Cloud & Identity -->
                 <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="100">
                     <i class="fa-solid fa-cloud text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
                     <h3 class="text-lg font-bold text-textMain mb-4">Cloud & Infrastructure</h3>
                     <ul class="space-y-3 text-sm font-medium text-textMuted">
                         <li><span class="text-primary mr-2">✦</span>Microsoft 365 & Entra ID</li>
                         <li><span class="text-primary mr-2">✦</span>Google Workspace Admin</li>
-                        <li><span class="text-primary mr-2">✦</span>Synology NAS & Data Backup</li>
-                        <li><span class="text-primary mr-2">✦</span>DNS, SSL & Web Hosting</li>
+                        <li><span class="text-primary mr-2">✦</span>Synology NAS & Disaster Recovery</li>
+                        <li><span class="text-primary mr-2">✦</span>DNS, SSL & Web Server Hosting</li>
                     </ul>
                 </div>
-                <!-- 2 -->
+
+                <!-- Web Development & Code -->
                 <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fa-solid fa-shield-halved text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-lg font-bold text-textMain mb-4">Security & Devices</h3>
-                    <ul class="space-y-3 text-sm font-medium text-textMuted">
-                        <li><span class="text-primary mr-2">✦</span>Microsoft Intune & MDM</li>
-                        <li><span class="text-primary mr-2">✦</span>NinjaOne RMM & Heimdal</li>
-                        <li><span class="text-primary mr-2">✦</span>Zero Trust & Access</li>
-                        <li><span class="text-primary mr-2">✦</span>Data Privacy & Compliance</li>
-                    </ul>
-                </div>
-                <!-- 3 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fa-solid fa-handshake text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-lg font-bold text-textMain mb-4">Operations & Vendors</h3>
-                    <ul class="space-y-3 text-sm font-medium text-textMuted">
-                        <li><span class="text-primary mr-2">✦</span>IT Procurement & Vendors</li>
-                        <li><span class="text-primary mr-2">✦</span>Subscription Billing</li>
-                        <li><span class="text-primary mr-2">✦</span>IT Asset Lifecycle Management</li>
-                        <li><span class="text-primary mr-2">✦</span>SOP Documentation</li>
-                    </ul>
-                </div>
-                <!-- 4 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="400">
-                    <i class="fa-solid fa-users text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-lg font-bold text-textMain mb-4">Professional Skills</h3>
-                    <ul class="space-y-3 text-sm font-medium text-textMuted">
-                        <li><span class="text-primary mr-2">✦</span>Cross-Functional Communication</li>
-                        <li><span class="text-primary mr-2">✦</span>Tier 1 & Tier 2 Tech Support</li>
-                        <li><span class="text-primary mr-2">✦</span>Stakeholder Negotiation</li>
-                        <li><span class="text-primary mr-2">✦</span>Management Reporting</li>
-                    </ul>
-                </div>
-                <!-- 5 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="500">
-                    <i class="fa-solid fa-wand-magic-sparkles text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-lg font-bold text-textMain mb-4">IT Automation</h3>
-                    <ul class="space-y-3 text-sm font-medium text-textMuted">
-                        <li><span class="text-primary mr-2">✦</span>Google Apps Script</li>
-                        <li><span class="text-primary mr-2">✦</span>Microsoft Power Automate</li>
-                        <li><span class="text-primary mr-2">✦</span>Automated Ticketing Systems</li>
-                        <li><span class="text-primary mr-2">✦</span>Zero-Touch App Deployment</li>
-                    </ul>
-                </div>
-                <!-- 6 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="600">
                     <i class="fa-solid fa-code text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
                     <h3 class="text-lg font-bold text-textMain mb-4">WordPress Front-End</h3>
                     <ul class="space-y-3 text-sm font-medium text-textMuted">
-                        <li><span class="text-primary mr-2">✦</span>Custom Theme Design</li>
-                        <li><span class="text-primary mr-2">✦</span>HTML5, CSS3, PHP & JS</li>
-                        <li><span class="text-primary mr-2">✦</span>Elementor & Gutenberg</li>
-                        <li><span class="text-primary mr-2">✦</span>Technical SEO & Speed</li>
+                        <li><span class="text-primary mr-2">✦</span>Custom Theme Development</li>
+                        <li><span class="text-primary mr-2">✦</span>HTML5, CSS3, JavaScript & Tailwind</li>
+                        <li><span class="text-primary mr-2">✦</span>Elementor & Gutenberg Architecture</li>
+                        <li><span class="text-primary mr-2">✦</span>Technical SEO & Speed Optimization</li>
+                    </ul>
+                </div>
+
+                <!-- Endpoint & Security -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-shield-halved text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-textMain mb-4">Security & Endpoints</h3>
+                    <ul class="space-y-3 text-sm font-medium text-textMuted">
+                        <li><span class="text-primary mr-2">✦</span>Microsoft Intune & MDM</li>
+                        <li><span class="text-primary mr-2">✦</span>NinjaOne RMM & Heimdal Security</li>
+                        <li><span class="text-primary mr-2">✦</span>Zero Trust & Conditional Access</li>
+                        <li><span class="text-primary mr-2">✦</span>Data Privacy (DPO) & Compliance</li>
+                    </ul>
+                </div>
+
+                <!-- Automation & Scripting -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fa-solid fa-wand-magic-sparkles text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-textMain mb-4">Automation & Scripting</h3>
+                    <ul class="space-y-3 text-sm font-medium text-textMuted">
+                        <li><span class="text-primary mr-2">✦</span>Google Apps Script</li>
+                        <li><span class="text-primary mr-2">✦</span>Microsoft Power Automate</li>
+                        <li><span class="text-primary mr-2">✦</span>Custom API Integrations</li>
+                        <li><span class="text-primary mr-2">✦</span>Automated Ticketing Systems</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ABOUT ME & SOFT SKILLS SECTION -->
     <section id="about" class="py-16 lg:py-24 px-6 bg-lightBg relative overflow-hidden">
+        
         <div class="max-w-6xl mx-auto relative z-10">
-            <h2 class="text-2xl font-bold text-textMain mb-12 lg:mb-16 text-center tracking-wide uppercase" data-aos="fade-up">About Me</h2>
+            <h2 class="text-2xl font-bold text-textMain mb-12 lg:mb-16 text-center tracking-wide uppercase" data-aos="fade-up">Professional Bridger</h2>
+            
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
                 <div class="order-1 lg:order-1" data-aos="fade-right">
                     <h3 class="text-2xl md:text-3xl font-bold text-textMain mb-6 lg:mb-8 leading-snug">
-                        I manage secure IT systems and build custom websites.
+                        I engineer secure, reliable infrastructure, then bridge it to creative frontend experiences.
                     </h3>
                     <p class="text-textMuted font-medium leading-relaxed mb-6">
-                        I am an <span class="text-textMain font-bold">IT Systems Admin</span> with <span class="text-textMain font-bold">over 3 years of experience</span> managing business networks. I work <span class="text-textMain font-bold">100% remotely</span>. I specialize in cloud setup, user security, and managing devices safely using Microsoft Intune and NinjaOne.
+                        I am an <span class="text-textMain font-bold">IT Systems Administrator</span> with <span class="text-textMain font-bold">3+ years of professional experience</span> managing complex enterprise IT infrastructures. Operating globally via <span class="text-textMain font-bold">100% remote work</span>, I specialize in complete Cloud Administration (M365, Google Workspace), robust Identity & Access Management via Entra ID (Azure AD), and automated, Zero Trust-compliant endpoint management utilizing Microsoft Intune and NinjaOne RMM.
                     </p>
                     <p class="text-textMuted font-medium leading-relaxed">
-                        On the web development side, I design and build fast, responsive <span class="text-textMain font-bold">WordPress sites</span>. I focus on writing clean code and creating websites that look great and run smoothly for businesses and clients.
+                        My DPO Championship background and Cisco CCNA training allow me to seamlessly bridge the gap between rigorous technical operations and creative web engineering. This website showcases how I bring that exact security mindset, backup resilience (Synology NAS), and automation expertise to my modern WordPress frontend projects, creating solutions that are optimized, compliant, and flawless.
                     </p>
                 </div>
+                
                 <div class="order-2 lg:order-2 grid grid-cols-2 gap-3 sm:gap-5" data-aos="fade-left">
                     <div class="bg-altBg p-6 rounded-xl border border-slate-200 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:border-primary group transition-all clickable">
                         <i class="fa-solid fa-comments text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"></i>
@@ -244,62 +296,57 @@
                     </div>
                     <div class="bg-altBg p-6 rounded-xl border border-slate-200 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:border-primary group transition-all clickable">
                         <i class="fa-solid fa-lightbulb text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-textMain text-sm font-bold">Problem Solving</span>
+                        <span class="text-textMain text-sm font-bold">Creative Solutions</span>
                     </div>
                     <div class="bg-altBg p-6 rounded-xl border border-slate-200 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:border-primary group transition-all clickable">
-                        <i class="fa-solid fa-shield-halved text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-textMain text-sm font-bold">Security First</span>
+                        <i class="fa-solid fa-network-wired text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-textMain text-sm font-bold">Zero Trust Mindset</span>
                     </div>
                     <div class="bg-altBg p-6 rounded-xl border border-slate-200 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:border-primary group transition-all clickable">
-                        <i class="fa-solid fa-code text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-textMain text-sm font-bold">Clean Code</span>
+                        <i class="fa-solid fa-link text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-textMain text-sm font-bold">Compliance Bridge</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WEBSITE WORKS & PROJECTS SLIDER -->
-    <section id="works" class="py-16 lg:py-24 px-6 bg-altBg border-y border-slate-200 overflow-hidden">
+    <!-- WEBSITE WORKS & PROJECTS SECTION -->
+    <section id="works" class="py-16 lg:py-24 px-6 bg-altBg border-y border-slate-200">
         <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col sm:flex-row justify-between items-end mb-10 gap-6" data-aos="fade-up">
-                <div>
-                    <h2 class="text-2xl font-bold text-textMain tracking-wide uppercase">My Web Projects</h2>
-                    <p class="text-textMuted font-medium mt-2">Swipe or use arrows to explore my WordPress builds.</p>
-                </div>
-                <div class="hidden sm:flex gap-3">
-                    <button id="prevProject" aria-label="Previous Project" class="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 clickable shadow-sm"><i class="fa-solid fa-chevron-left"></i></button>
-                    <button id="nextProject" aria-label="Next Project" class="w-11 h-11 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 clickable shadow-sm"><i class="fa-solid fa-chevron-right"></i></button>
-                </div>
-            </div>
+            <h2 class="text-2xl font-bold text-textMain mb-4 text-center tracking-wide uppercase" data-aos="fade-up">WordPress Front-End Projects</h2>
+            <p class="text-center text-textMuted font-medium mb-12 lg:mb-16 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">A curated selection of my custom WordPress engineering, responsive front-end designs, and UI/UX optimization.</p>
             
-            <div id="projectSlider" class="flex overflow-x-auto gap-6 snap-x snap-mandatory no-scrollbar pb-8 pt-4 -mx-6 px-6 lg:mx-0 lg:px-0" data-aos="fade-up" data-aos-delay="100">
-                <!-- Project 1 -->
-                <a href="https://hbrmo.com" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1: HBRMO -->
+                <a href="https://hbrmo.com" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
-                        <img src="10HBRMO.png" alt="HBRMO" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <img src="10HBRMO.png" alt="HBRMO" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-lg font-bold text-textMain mb-2 group-hover:text-primary transition-colors">HBRMO</h3>
-                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Trusted talent. Driven by excellence. Professional Debt Collection Solutions.</p>
+                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Trusted talent. Driven by excellence. HB Remedial Management OPC — Professional Debt Collection Solutions.</p>
                         <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
-                <!-- Project 2 -->
-                <a href="https://neun.ph" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
+
+                <!-- Project 2: Neun Farben -->
+                <a href="https://neun.ph" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
-                        <img src="9NF.png" alt="Neun Farben" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <img src="9NF.png" alt="Neun Farben" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-lg font-bold text-textMain mb-2 group-hover:text-primary transition-colors">Neun Farben</h3>
-                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Crafting stunning 2D/3D art, animation, and game experiences for studios everywhere.</p>
+                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">From the Philippines to the World: Crafting stunning 2D/3D art, animation, and game experiences for studios, brands, and creators anywhere.</p>
                         <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
-                <!-- Project 3 -->
-                <a href="https://www.thegroomingtable.com.sg/" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
+
+                <!-- Project 3: The Grooming Table -->
+                <a href="https://www.thegroomingtable.com.sg/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
-                        <img src="1TGT.png" alt="The Grooming Table" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <img src="1TGT.png" alt="The Grooming Table" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-lg font-bold text-textMain mb-2 group-hover:text-primary transition-colors">The Grooming Table</h3>
@@ -307,117 +354,134 @@
                         <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
-                <!-- Project 4 -->
-                <a href="https://maxmyprofit.com.au/" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
+
+                <!-- Project 4: Max My Profit -->
+                <a href="https://maxmyprofit.com.au/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
-                        <img src="2MMP.png" alt="Max My Profit" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <img src="2MMP.png" alt="Max My Profit" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-lg font-bold text-textMain mb-2 group-hover:text-primary transition-colors">Max My Profit</h3>
-                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Join the Max Business Academy and before you know it, you’ll be running a Profitable Business.</p>
+                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Join the Max Business Academy and before you know it, you’ll be running a Profitable Business that doesn’t rely on YOU having to do all the work.</p>
                         <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
-                <!-- Project 5 -->
-                <a href="https://www.ghluxproperties.com/" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
+
+                <!-- Project 5: GHLUX -->
+                <a href="https://www.ghluxproperties.com/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
-                        <img src="3GHLUX.png" alt="GHLUX Properties" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <img src="3GHLUX.png" alt="GHLUX Properties" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-lg font-bold text-textMain mb-2 group-hover:text-primary transition-colors">GHLUX Properties</h3>
-                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">With our luxurious short-term rentals and Airbnb, you will have a relaxing experience like no other.</p>
+                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">With our luxurious short-term rentals and Airbnb, you will have a relaxing experience like no other. We prioritize our customers’ experiences.</p>
                         <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
-                <!-- Project 6 -->
-                <a href="https://moonmanstudio.space/" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
+
+                <!-- Project 6: Moonman Studio -->
+                <a href="https://moonmanstudio.space/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
-                        <img src="4MMS.png" alt="Moonman Studio" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <img src="4MMS.png" alt="Moonman Studio" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-lg font-bold text-textMain mb-2 group-hover:text-primary transition-colors">Moonman Studio</h3>
-                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Our mission is to help good food brands go from where they are to where their customers are.</p>
+                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Our mission is to help good food brands go from where they are to where their customers are. Accelerating the success of F&B brands.</p>
                         <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
-                <!-- Project 7 -->
-                <a href="https://www.strongworkmd.com/" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
+
+                <!-- Project 7: Strong Work MD -->
+                <a href="https://www.strongworkmd.com/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
-                        <img src="5SSMD.png" alt="Strong Work MD" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <img src="5SSMD.png" alt="Strong Work MD" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-lg font-bold text-textMain mb-2 group-hover:text-primary transition-colors">Strong Work MD</h3>
-                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Always free for physicians, a fraction of the cost for groups. Let us help you find the right group.</p>
+                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Always free for physicians, a fraction of the cost for groups. For physicians by physicians. Let us help you find the right group.</p>
                         <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
-                <!-- Project 8 -->
-                <a href="https://www.aria-networks.com/" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
+
+                <!-- Project 8: Aria Networks -->
+                <a href="https://www.aria-networks.com/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
-                        <img src="6AN.png" alt="Aria Networks" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <img src="6AN.png" alt="Aria Networks" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-lg font-bold text-textMain mb-2 group-hover:text-primary transition-colors">Aria Networks</h3>
-                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">A network simulation, visualization, forecasting and optimization software provider to 5G networks.</p>
+                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Aria Networks is a network simulation, visualization, forecasting and optimization software provider to telecommunications and 5G networks.</p>
                         <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
-                <!-- Project 9 -->
-                <a href="https://transcendgroup.co/" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
+
+                <!-- Project 9: Transcend -->
+                <a href="https://transcendgroup.co/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
-                        <img src="7TS.png" alt="Transcend" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <img src="7TS.png" alt="Transcend" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-lg font-bold text-textMain mb-2 group-hover:text-primary transition-colors">Transcend</h3>
-                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Be an Influencer. By working with the Transcend team, you will reach hundreds of millions.</p>
+                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">Be an Influencer. By working with the Transcend team, you will be able to reach across hundreds of millions of people in various markets.</p>
                         <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
-                <!-- Project 10 -->
-                <a href="https://rvradigital.com/" target="_blank" class="w-[85vw] sm:w-[350px] flex-shrink-0 snap-start block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable">
+
+                <!-- Project 10: RVRA -->
+                <a href="https://rvradigital.com/" target="_blank" class="block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable" data-aos="fade-up">
                     <div class="h-48 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center">
-                        <img src="8RVRA.png" alt="RVRA" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <img src="8RVRA.png" alt="RVRA" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-lg font-bold text-textMain mb-2 group-hover:text-primary transition-colors">RVRA Digital</h3>
-                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">High Quality Leads For Real Estate Investors. Converting ad spend into an ROI.</p>
+                        <p class="text-sm text-textMuted font-normal mb-6 flex-grow leading-relaxed">High Quality Leads For Real Estate Investors. Even in the softening real estate market we are converting ad spend into an ROI.</p>
                         <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
+
             </div>
         </div>
     </section>
 
-    <!-- CAREER TIMELINE -->
-    <section id="experience" class="py-16 lg:py-24 px-6 bg-lightBg border-y border-slate-200">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-2xl font-bold text-textMain mb-12 lg:mb-16 text-center tracking-wide uppercase" data-aos="fade-up">Career Timeline</h2>
-            
-            <!-- UPDATED: Neun Farben Corp -->
-            <div class="relative border-l-2 border-slate-200 ml-2 sm:ml-4 pl-6 sm:pl-8 mb-12 lg:mb-14 hover:border-primary transition-colors duration-500 clickable" data-aos="fade-up" data-aos-delay="100">
-                <div class="absolute -left-[9px] top-1 flex h-4 w-4">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-50"></span>
-                    <span class="relative inline-flex rounded-full h-4 w-4 bg-primary shadow-sm"></span>
+    <!-- NEW SERVICES SECTION (Replaces Career Timeline) -->
+    <section id="services" class="py-16 lg:py-24 px-6 bg-lightBg border-y border-slate-200">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl font-bold text-textMain mb-12 lg:mb-16 text-center tracking-wide uppercase" data-aos="fade-up">My Services</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="p-8 border border-slate-200 rounded-2xl hover:border-primary hover:shadow-xl transition-all duration-300 group clickable bg-white relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-primary transform scale-y-0 group-hover:scale-y-100 transition-transform origin-bottom duration-300"></div>
+                    <i class="fa-solid fa-network-wired text-3xl text-primary mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-textMain mb-3">Remote IT Administration</h3>
+                    <p class="text-sm text-textMuted leading-relaxed">Comprehensive remote administration of enterprise cloud environments. I specialize in Microsoft 365, Google Workspace, and Entra ID (Azure AD), engineering secure, scalable infrastructure for global teams.</p>
                 </div>
-                <h3 class="text-lg sm:text-xl font-bold text-textMain">IT Systems Administrator (IT Generalist)</h3>
-                <h4 class="text-sm font-bold text-black mb-3 tracking-wide">Neun Farben Corp | April 2023 – Present</h4>
-                <p class="text-sm text-textMuted font-medium leading-relaxed mb-4">Handled IT support tickets using NinjaOne. Set up laptops automatically and managed endpoints remotely using Intune and NinjaOne. Oversee software administration and IT financial tracking.</p>
-            </div>
-            
-            <!-- UPDATED: HB Remedial -->
-            <div class="relative border-l-2 border-slate-200 ml-2 sm:ml-4 pl-6 sm:pl-8 mb-12 lg:mb-14 hover:border-primary transition-colors duration-500 clickable" data-aos="fade-up" data-aos-delay="200">
-                <div class="absolute w-4 h-4 bg-gray-400 rounded-full -left-[9px] top-1"></div>
-                <h3 class="text-lg sm:text-xl font-bold text-textMain">IT Support / Cloud Administrator (Freelance)</h3>
-                <h4 class="text-sm font-bold text-slate-500 mb-3 tracking-wide">HB Remedial Management OPC | April 2025 – Present</h4>
-                <p class="text-sm text-textMuted font-medium leading-relaxed mb-4">Acted as the Data Privacy Officer (DPO) Champion Built an IT support system, deployed Heimdal security, and managed Google Workspace accounts and device security.</p>
-            </div>
-            
-            <!-- Go Crayons (Web Dev) -->
-            <div class="relative border-l-2 border-slate-200 ml-2 sm:ml-4 pl-6 sm:pl-8 hover:border-primary transition-colors duration-500 clickable" data-aos="fade-up" data-aos-delay="300">
-                <div class="absolute w-4 h-4 bg-gray-400 rounded-full -left-[9px] top-1"></div>
-                <h3 class="text-lg sm:text-xl font-bold text-textMain">Web Developer</h3>
-                <h4 class="text-sm font-bold text-slate-500 mb-3 tracking-wide">Go Crayons | Aug 2022 – Mar 2023</h4>
-                <p class="text-sm text-textMuted font-medium leading-relaxed mb-4">Built responsive business websites using PHP and JavaScript. Managed web hosting, DNS settings, SSL certificates, and site speed.</p>
+
+                <!-- Service 2 -->
+                <div class="p-8 border border-slate-200 rounded-2xl hover:border-primary hover:shadow-xl transition-all duration-300 group clickable bg-white relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-primary transform scale-y-0 group-hover:scale-y-100 transition-transform origin-bottom duration-300"></div>
+                    <i class="fa-solid fa-laptop-file text-3xl text-primary mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-textMain mb-3">Software & Hardware Auditing</h3>
+                    <p class="text-sm text-textMuted leading-relaxed">Conducting rigorous remote audits of company software and hardware assets. Utilizing MDM tools like Intune and NinjaOne RMM for zero-touch provisioning, patch management, and automated inventory tracking.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="p-8 border border-slate-200 rounded-2xl hover:border-primary hover:shadow-xl transition-all duration-300 group clickable bg-white relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-primary transform scale-y-0 group-hover:scale-y-100 transition-transform origin-bottom duration-300"></div>
+                    <i class="fa-solid fa-shield-halved text-3xl text-primary mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-textMain mb-3">Security Checks & Compliance</h3>
+                    <p class="text-sm text-textMuted leading-relaxed">Proactive security monitoring, regular vulnerability assessments, and strict Zero Trust policy enforcement. As a DPO Champion, I ensure your company's data privacy aligns perfectly with modern compliance standards.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="p-8 border border-slate-200 rounded-2xl hover:border-primary hover:shadow-xl transition-all duration-300 group clickable bg-white relative overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-primary transform scale-y-0 group-hover:scale-y-100 transition-transform origin-bottom duration-300"></div>
+                    <i class="fa-brands fa-wordpress text-3xl text-primary mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-textMain mb-3">WordPress Front-End Engineering</h3>
+                    <p class="text-sm text-textMuted leading-relaxed">Designing and developing high-performance, fully responsive WordPress websites. I bridge the gap between creative UI/UX design and secure, technically optimized web architecture.</p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -426,6 +490,7 @@
     <section class="py-16 lg:py-24 px-6 bg-altBg border-b border-slate-200">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-2xl font-bold text-textMain mb-12 text-center tracking-wide uppercase" data-aos="fade-up">Certifications & Training</h2>
+            
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div class="bg-white p-5 rounded-xl border border-slate-200 hover:border-primary hover:shadow-md transition-all duration-300 flex items-start gap-4 group clickable" data-aos="fade-up" data-aos-delay="100">
                     <i class="fa-solid fa-award text-2xl text-primary mt-1 group-hover:scale-110 transition-transform"></i>
@@ -463,15 +528,17 @@
         </div>
     </section>
 
-    <!-- CONTACT & FOOTER -->
+    <!-- COMBINED CONTACT & FOOTER SECTION -->
     <footer id="contact" class="bg-lightBg pt-16 lg:pt-24 pb-12 px-6 relative overflow-hidden">
+        
+        <!-- Top Half: Contact Form -->
         <div class="max-w-2xl mx-auto text-center mb-16">
             <h2 class="text-2xl font-bold text-textMain mb-4 tracking-wide uppercase" data-aos="fade-up">Let's Connect</h2>
-            <p class="text-textMuted font-medium mb-10" data-aos="fade-up" data-aos-delay="100">Have a project in mind or need a remote IT Lead? Send me a message.</p>
+            <p class="text-textMuted font-medium mb-10" data-aos="fade-up" data-aos-delay="100">Have a project in mind, need an infrastructure overhaul, or looking for a remote IT Lead? Drop me a message.</p>
             
             <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6 text-left" data-aos="fade-up" data-aos-delay="200">
-                <input type="hidden" name="access_key" value="61e32a56-8e46-4203-a756-2768ddc37b24">
-                <input type="hidden" name="redirect" value="https://yourwebsite.com">
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-xs font-bold text-black uppercase tracking-wider mb-2">Name</label>
@@ -486,90 +553,107 @@
                     <label class="block text-xs font-bold text-black uppercase tracking-wider mb-2">Message</label>
                     <textarea name="message" rows="5" required class="w-full bg-altBg border border-slate-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors shadow-sm clickable"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-black text-white font-bold tracking-widest uppercase py-4 rounded-lg hover:bg-primary transition-colors shadow-lg clickable">Send Message</button>
+                <button type="submit" class="w-full bg-black text-white font-bold tracking-widest uppercase py-4 rounded-lg hover:bg-primary transition-colors shadow-lg clickable">
+                    Send Message
+                </button>
             </form>
         </div>
+
+        <!-- Bottom Half: Socials & Copyright -->
         <div class="max-w-4xl mx-auto pt-8 border-t border-slate-200 text-center flex flex-col items-center">
             <div class="flex justify-center gap-8 mb-6">
                 <a href="mailto:cristine.sicson@gmail.com" class="text-slate-500 hover:text-primary text-2xl transition-all hover:scale-110 clickable"><i class="fa-solid fa-envelope"></i></a>
                 <a href="https://www.linkedin.com/in/cristine-jhoy-sicson-91822616b/" target="_blank" class="text-slate-500 hover:text-primary text-2xl transition-all hover:scale-110 clickable"><i class="fa-brands fa-linkedin"></i></a> 
             </div>
-            <p class="text-xs text-slate-500 font-medium tracking-wide">&copy; 2026 Cristine Jhoy Sicson. Engineered with code & milk.</p>
+            <p class="text-xs text-slate-500 font-medium tracking-wide">&copy; 2026 Cristine Jhoy Sicson. Engineered with code & coffee.</p>
         </div>
     </footer>
 
-    <button id="backToTop" aria-label="Back to top" class="fixed bottom-8 right-8 z-50 bg-black text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 translate-y-10 pointer-events-none hover:bg-primary hover:scale-110 clickable">
+    <!-- BACK TO TOP BUTTON -->
+    <button id="backToTop" class="fixed bottom-8 right-8 z-50 bg-black text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 translate-y-10 pointer-events-none hover:bg-primary hover:scale-110 clickable">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-    <!-- Essential Scripts Only -->
+    <!-- AOS JS for Animations & Custom Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Consolidated logic for maximum speed
-        document.addEventListener('DOMContentLoaded', () => {
+        // 1. Loading Preloader 
+        window.addEventListener('load', () => {
             const preloader = document.getElementById('preloader');
-            const navbar = document.getElementById('navbar');
-            const backToTopBtn = document.getElementById('backToTop');
-            const parallaxEls = document.querySelectorAll('.parallax');
-            const scrollProgress = document.getElementById('scrollProgress');
-            const cursor = document.getElementById('custom-cursor');
-            const slider = document.getElementById('projectSlider');
-
-            // 1. Preloader Initialization
             setTimeout(() => {
                 preloader.style.transform = 'translateY(-100%)';
-                setTimeout(() => AOS.init({ duration: 800, once: true, offset: 50 }), 300); 
-                setTimeout(() => preloader.style.display = 'none', 1200); 
-            }, 1000); 
-
-            // 2. High-Performance Scroll Listener (Passive)
-            window.addEventListener('scroll', () => {
-                const scrollY = window.scrollY;
-                const docEl = document.documentElement;
-                
-                // Progress Bar
-                scrollProgress.style.width = `${(docEl.scrollTop / (docEl.scrollHeight - docEl.clientHeight)) * 100}%`;
-                
-                // Navbar toggle
-                navbar.classList.toggle('-translate-y-full', scrollY <= 300);
-                
-                // Back to Top button toggle
-                const showBTT = scrollY > 500;
-                backToTopBtn.classList.toggle('opacity-0', !showBTT);
-                backToTopBtn.classList.toggle('translate-y-10', !showBTT);
-                backToTopBtn.classList.toggle('pointer-events-none', !showBTT);
-                backToTopBtn.classList.toggle('opacity-100', showBTT);
-                
-                // Parallax
-                parallaxEls.forEach(el => {
-                    el.style.transform = `translateY(${scrollY * (el.dataset.speed || 0.2)}px)`;
-                });
-            }, { passive: true });
-
-            backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-            // 3. Custom Cursor
-            if (window.matchMedia("(pointer: fine)").matches) {
-                document.body.classList.add('hide-default-cursor');
-                cursor.style.display = 'block';
-                document.addEventListener('mousemove', e => {
-                    cursor.style.left = `${e.clientX}px`;
-                    cursor.style.top = `${e.clientY}px`;
-                });
-                document.querySelectorAll('a, button, input, textarea, .clickable').forEach(el => {
-                    el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
-                    el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
-                });
-            }
-
-            // 4. Project Slider
-            if (slider) {
-                const getScrollAmt = () => slider.querySelector('a')?.offsetWidth + 24 || 374;
-                document.getElementById('nextProject')?.addEventListener('click', () => slider.scrollBy({ left: getScrollAmt(), behavior: 'smooth' }));
-                document.getElementById('prevProject')?.addEventListener('click', () => slider.scrollBy({ left: -getScrollAmt(), behavior: 'smooth' }));
-            }
+                setTimeout(() => {
+                    AOS.init({ duration: 800, once: true, offset: 50, easing: 'ease-out-quad' });
+                }, 300); 
+                setTimeout(() => { preloader.style.display = 'none'; }, 1200); 
+            }, 1200); 
         });
+
+        const navbar = document.getElementById('navbar');
+        const backToTopBtn = document.getElementById('backToTop');
+        const parallaxElements = document.querySelectorAll('.parallax');
+        const scrollProgress = document.getElementById('scrollProgress');
+
+        // 2. Scroll Events (Navbar, Back to top, Parallax, Progress bar)
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+
+            // Scroll Progress Bar Logic
+            const totalScroll = document.documentElement.scrollTop;
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = `${(totalScroll / windowHeight) * 100}%`;
+            scrollProgress.style.width = scrollPercent;
+
+            if (scrollY > 300) {
+                navbar.classList.remove('-translate-y-full');
+            } else {
+                navbar.classList.add('-translate-y-full');
+            }
+
+            if (scrollY > 500) {
+                backToTopBtn.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+                backToTopBtn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+                backToTopBtn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            }
+
+            parallaxElements.forEach((el) => {
+                const speed = el.getAttribute('data-speed') || 0.2;
+                el.style.transform = `translateY(${scrollY * speed}px)`;
+            });
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 3. Custom Agency Cursor Logic
+        const cursor = document.getElementById('custom-cursor');
+        const clickables = document.querySelectorAll('a, button, input, textarea, .clickable');
+
+        // Check if device supports hover (non-touch screens)
+        if (window.matchMedia("(pointer: fine)").matches) {
+            document.body.classList.add('hide-default-cursor');
+            cursor.style.display = 'block';
+
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+
+            clickables.forEach((el) => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.classList.add('cursor-hover');
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('cursor-hover');
+                });
+            });
+        } else {
+            cursor.style.display = 'none'; // Keep hidden on mobile/tablets
+        }
     </script>
-    <script defer src="/_vercel/insights/script.js"></script>
+
 </body>
 </html>
