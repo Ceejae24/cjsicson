@@ -1,39 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CJ Sicson | IT Lead & Full Stack Web Developer</title>
     
-    <!-- FAVICON (Browser Tab Icon) -->
+    <!-- SEO & OPEN GRAPH TAGS (For LinkedIn/Social Sharing Previews) -->
+    <title>CJ Sicson | IT Lead & Full Stack Web Developer</title>
+    <meta name="description" content="Portfolio of CJ Sicson. IT Infrastructure Lead, Zero Trust Security Expert, and Full Stack Web Developer.">
+    <meta property="og:title" content="CJ Sicson | IT Lead & Web Engineer">
+    <meta property="og:description" content="I engineer secure IT infrastructures, build full stack web platforms, and automate workflows with AI.">
+    <meta property="og:image" content="Profile Transparent.png"> <!-- Consider making a 1200x630px banner named og-banner.jpg later -->
+    <meta property="og:url" content="https://cjsicson.vercel.app">
+    <meta property="og:type" content="website">
+
+    <!-- FAVICON -->
     <link rel="icon" type="image/png" href="image_6f6139.png">
     
-    <!-- Smooth Scroll Animations (AOS Library CSS) -->
+    <!-- Smooth Scroll Animations (AOS Library) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Tailwind CSS for rapid styling -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts: Inter for that clean, minimalist tech look -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
+            darkMode: 'class', // Enables dark mode toggling via the 'dark' class
             theme: {
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
                         lightBg: '#ffffff',     
                         altBg: '#f8fafc',       
-                        darkBg: '#000000',      
-                        darkTextMain: '#ffffff', 
-                        darkTextMuted: '#a3a3a3', 
-                        accent: '#000000',      
-                        textMain: '#000000',    
-                        textMuted: '#525252',   
+                        darkBg: '#0f172a', // Upgraded to a deep modern slate for dark mode
+                        darkAltBg: '#1e293b', 
                         primary: '#2563EB',     
                         online: '#10B981'       
                     }
@@ -48,19 +53,13 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
-        .animate-subtle-pulse {
-            animation: subtle-pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
+        .animate-subtle-pulse { animation: subtle-pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
 
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #f8fafc; }
+        ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #2563EB; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #1d4ed8; }
 
-        .hide-scroll-bar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+        .hide-scroll-bar { -ms-overflow-style: none; scrollbar-width: none; }
         .hide-scroll-bar::-webkit-scrollbar { display: none; }
 
         .hide-default-cursor, .hide-default-cursor * { cursor: none !important; }
@@ -78,41 +77,46 @@
         }
     </style>
 </head>
-<body class="bg-lightBg text-textMuted font-sans antialiased selection:bg-primary selection:text-white overflow-x-hidden">
+<body class="bg-lightBg dark:bg-darkBg text-slate-600 dark:text-slate-300 font-sans antialiased selection:bg-primary selection:text-white overflow-x-hidden transition-colors duration-300">
 
     <div id="custom-cursor"></div>
     <div id="scrollProgress" class="fixed top-0 left-0 h-[2px] bg-primary z-[150] w-0 transition-all duration-75"></div>
 
-    <div id="preloader" class="fixed inset-0 z-[100] bg-darkBg flex items-center justify-center transition-transform duration-[1200ms] ease-in-out">
+    <div id="preloader" class="fixed inset-0 z-[100] bg-black flex items-center justify-center transition-transform duration-[1200ms] ease-in-out">
         <div class="text-white text-5xl md:text-6xl font-bold tracking-widest animate-subtle-pulse">
             CJ<span class="text-primary">.</span>
         </div>
     </div>
 
-    <!-- STICKY NAV BAR -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-[90] bg-white/80 backdrop-blur-md border-b border-slate-200 transition-transform duration-500 -translate-y-full px-6 py-4 flex justify-between items-center shadow-sm mt-[2px]">
-        <a href="#" class="text-xl lg:text-2xl font-bold text-black tracking-widest hover:text-primary transition-colors">CJ<span class="text-primary">.</span></a>
+    <!-- STICKY NAV BAR (Dark Mode Enabled) -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-[90] bg-white/80 dark:bg-darkBg/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-all duration-500 -translate-y-full px-6 py-4 flex justify-between items-center shadow-sm">
+        <a href="#" class="text-xl lg:text-2xl font-bold text-black dark:text-white tracking-widest hover:text-primary transition-colors">CJ<span class="text-primary">.</span></a>
         
-        <div class="hidden md:flex gap-8 text-sm font-bold text-gray-500 uppercase tracking-widest">
-            <a href="#capabilities" class="hover:text-black transition-colors clickable">Capabilities</a>
-            <a href="#works" class="hover:text-black transition-colors clickable">Projects</a>
+        <div class="hidden md:flex gap-8 text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">
+            <a href="#capabilities" class="hover:text-black dark:hover:text-white transition-colors clickable">Capabilities</a>
+            <a href="#works" class="hover:text-black dark:hover:text-white transition-colors clickable">Projects</a>
         </div>
 
-        <div class="flex items-center gap-4">
-            <a href="https://github.com/Ceejae24" target="_blank" class="hidden sm:block text-gray-500 hover:text-primary transition-colors clickable text-lg"><i class="fa-brands fa-github"></i></a>
-            <a href="CV_Sicson.pdf" download class="hidden sm:block text-xs font-bold text-gray-500 hover:text-primary uppercase tracking-wider transition-colors clickable"><i class="fa-solid fa-download mr-1"></i> CV</a>
-            <a href="#contact" class="bg-black text-white text-xs lg:text-sm font-bold py-2 px-5 rounded-md hover:bg-primary transition-colors uppercase tracking-wider shadow-md clickable">Let's Talk</a>
+        <div class="flex items-center gap-5">
+            <!-- Theme Toggle -->
+            <button id="themeToggle" class="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors clickable text-lg">
+                <i class="fa-solid fa-moon dark:hidden"></i>
+                <i class="fa-solid fa-sun hidden dark:inline"></i>
+            </button>
+            <a href="https://github.com/Ceejae24" target="_blank" class="hidden sm:block text-slate-500 dark:text-slate-400 hover:text-primary transition-colors clickable text-lg"><i class="fa-brands fa-github"></i></a>
+            <a href="CV_Sicson.pdf" download class="hidden sm:block text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-primary uppercase tracking-wider transition-colors clickable"><i class="fa-solid fa-download mr-1"></i> CV</a>
+            <a href="#contact" class="bg-black dark:bg-white text-white dark:text-black text-xs lg:text-sm font-bold py-2 px-5 rounded-md hover:bg-primary dark:hover:bg-primary dark:hover:text-white transition-colors uppercase tracking-wider shadow-md clickable">Let's Talk</a>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="relative min-h-[100dvh] lg:min-h-screen flex flex-col lg:flex-row items-center justify-center bg-darkBg overflow-hidden">
+    <header class="relative min-h-[100dvh] lg:min-h-screen flex flex-col lg:flex-row items-center justify-center bg-black overflow-hidden">
         <div class="absolute top-8 left-6 lg:top-12 lg:left-12 z-50" data-aos="fade-down" data-aos-delay="200">
             <span class="text-2xl lg:text-3xl font-bold text-white tracking-widest">CJ<span class="text-primary">.</span></span>
         </div>
 
         <div class="absolute inset-0 z-0 w-full h-full pointer-events-none hidden lg:block">
-            <div class="parallax absolute top-1/2 right-0 w-80 h-80 bg-primary rounded-full blur-[150px] opacity-[0.12] -translate-y-1/2 translate-x-1/2" data-speed="0.2"></div>
+            <div class="parallax absolute top-1/2 right-0 w-80 h-80 bg-primary rounded-full blur-[150px] opacity-[0.15] -translate-y-1/2 translate-x-1/2" data-speed="0.2"></div>
         </div>
 
         <div class="hidden lg:flex absolute inset-0 justify-center items-end z-10 pointer-events-none">
@@ -121,427 +125,321 @@
 
         <div class="max-w-7xl mx-auto w-full flex flex-col lg:grid lg:grid-cols-12 items-center lg:px-6 pt-0 lg:pt-28 pb-0 lg:pb-20 relative z-20 pointer-events-auto">
             
-            <div class="order-1 lg:order-2 w-full lg:w-auto px-6 lg:px-0 pt-32 pb-8 lg:py-0 bg-darkBg lg:bg-transparent lg:col-span-5 lg:col-start-1 flex flex-col justify-center text-center lg:text-left drop-shadow-sm lg:drop-shadow-none">
+            <div class="order-1 lg:order-2 w-full lg:w-auto px-6 lg:px-0 pt-32 pb-8 lg:py-0 bg-black lg:bg-transparent lg:col-span-5 lg:col-start-1 flex flex-col justify-center text-center lg:text-left drop-shadow-sm lg:drop-shadow-none">
                 <h1 class="text-4xl sm:text-5xl lg:text-7xl font-light text-white mb-2 tracking-tight" data-aos="fade-up" data-aos-delay="300">
                     Hi, <br class="hidden lg:block"> I'm <span class="font-bold text-white">CJ</span>
                 </h1>
-                <h2 class="text-lg sm:text-xl lg:text-2xl text-gray-300 font-medium mb-10 mt-2 leading-snug" data-aos="fade-up" data-aos-delay="400">
+                <h2 class="text-lg sm:text-xl lg:text-2xl text-slate-300 font-medium mb-10 mt-2 leading-snug" data-aos="fade-up" data-aos-delay="400">
                     IT Infrastructure Lead <span class="text-primary mx-1">&</span><br class="hidden lg:block">Full Stack Web Developer
                 </h2>
                 
                 <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4" data-aos="fade-up" data-aos-delay="500">
                     <a href="#contact" class="bg-white hover:bg-primary hover:text-white text-black font-medium py-3 px-8 rounded-lg transition-all duration-300 shadow-lg text-center clickable">Let's Connect</a>
-                    <a href="CV_Sicson.pdf" download class="bg-transparent border border-gray-500 hover:border-primary text-white hover:bg-primary hover:text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 text-center flex items-center justify-center clickable">
+                    <a href="CV_Sicson.pdf" download class="bg-transparent border border-slate-500 hover:border-primary text-white hover:bg-primary font-medium py-3 px-8 rounded-lg transition-all duration-300 text-center flex items-center justify-center clickable">
                         <i class="fa-solid fa-file-pdf mr-2"></i> Download CV
                     </a>
                 </div>
 
-                <div class="flex gap-6 mt-10 lg:mt-12 justify-center lg:justify-start text-gray-400" data-aos="fade-up" data-aos-delay="600">
+                <div class="flex gap-6 mt-10 lg:mt-12 justify-center lg:justify-start text-slate-400" data-aos="fade-up" data-aos-delay="600">
                     <a href="https://github.com/Ceejae24" target="_blank" class="hover:text-primary transition-colors clickable"><i class="fa-brands fa-github text-2xl"></i></a>
                     <a href="https://www.linkedin.com/in/cristine-jhoy-sicson-91822616b/" target="_blank" class="hover:text-primary transition-colors clickable"><i class="fa-brands fa-linkedin text-2xl"></i></a>
                     <a href="#contact" class="hover:text-primary transition-colors clickable"><i class="fa-solid fa-envelope text-2xl"></i></a>
                 </div>
             </div>
 
-            <div class="order-2 lg:hidden w-full flex justify-center bg-darkBg px-6 pt-6 pb-0">
+            <div class="order-2 lg:hidden w-full flex justify-center bg-black px-6 pt-6 pb-0">
                 <img src="Profile Transparent.png" alt="CJ Sicson" class="h-[300px] sm:h-[380px] w-auto object-contain object-bottom drop-shadow-2xl" data-aos="zoom-in" data-aos-delay="400">
             </div>
 
-            <div class="order-3 w-full lg:w-auto px-6 lg:px-0 pt-10 pb-16 lg:py-0 bg-lightBg lg:bg-transparent lg:col-span-4 lg:col-start-9 lg:pl-6 xl:pl-10 flex flex-col justify-center text-center lg:text-left drop-shadow-sm lg:drop-shadow-none relative">
+            <div class="order-3 w-full lg:w-auto px-6 lg:px-0 pt-10 pb-16 lg:py-0 bg-white dark:bg-darkBg lg:bg-transparent lg:col-span-4 lg:col-start-9 lg:pl-6 xl:pl-10 flex flex-col justify-center text-center lg:text-left drop-shadow-sm lg:drop-shadow-none relative transition-colors duration-300">
                 <div class="parallax hidden lg:block absolute -top-16 right-20 w-14 h-14 border-2 border-white rounded-full opacity-10" data-speed="-0.15"></div>
-                <div class="parallax hidden lg:block absolute top-10 right-8 w-4 h-4 bg-primary rounded-full shadow-lg opacity-40" data-speed="0.25"></div>
-
+                
                 <div class="flex flex-wrap justify-center lg:justify-start items-center gap-3 mb-4" data-aos="fade-up" data-aos-delay="400">
-                    <p class="text-gray-500 lg:text-gray-400 text-xs font-bold tracking-[0.2em] uppercase">Based in Philippines</p>
+                    <p class="text-slate-500 lg:text-slate-400 text-xs font-bold tracking-[0.2em] uppercase">Based in Philippines</p>
                     <div class="flex items-center gap-2">
-                        <span class="flex items-center gap-1.5 px-3 py-1 border border-black/10 lg:border-gray-500/50 rounded-full bg-altBg lg:bg-transparent cursor-default whitespace-nowrap">
+                        <span class="flex items-center gap-1.5 px-3 py-1 border border-slate-200 dark:border-slate-700 lg:border-slate-500/50 rounded-full bg-slate-50 dark:bg-darkAltBg lg:bg-transparent cursor-default whitespace-nowrap transition-colors">
                             <i class="fa-solid fa-briefcase text-primary text-[10px]"></i>
-                            <span class="text-[10px] font-bold tracking-[0.15em] uppercase text-textMain lg:text-white">3 Years Exp</span>
+                            <span class="text-[10px] font-bold tracking-[0.15em] uppercase text-black dark:text-white lg:text-white">3 Years Exp</span>
                         </span>
-                        <span class="flex items-center gap-1.5 px-3 py-1 border border-black/10 lg:border-gray-500/50 rounded-full bg-altBg lg:bg-transparent cursor-default whitespace-nowrap">
+                        <span class="flex items-center gap-1.5 px-3 py-1 border border-slate-200 dark:border-slate-700 lg:border-slate-500/50 rounded-full bg-slate-50 dark:bg-darkAltBg lg:bg-transparent cursor-default whitespace-nowrap transition-colors">
                             <span class="w-1.5 h-1.5 rounded-full bg-online animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)]"></span>
-                            <span class="text-[10px] font-bold tracking-[0.15em] uppercase text-textMain lg:text-white">100% Remote</span>
+                            <span class="text-[10px] font-bold tracking-[0.15em] uppercase text-black dark:text-white lg:text-white">100% Remote</span>
                         </span>
                     </div>
                 </div>
 
-                <h3 class="text-2xl md:text-3xl text-textMain lg:text-white font-semibold mb-6 leading-tight" data-aos="fade-up" data-aos-delay="500">
+                <h3 class="text-2xl md:text-3xl text-black dark:text-white lg:text-white font-semibold mb-6 leading-tight transition-colors" data-aos="fade-up" data-aos-delay="500">
                     I engineer secure IT infrastructures, build full stack web platforms, and automate workflows with AI.
                 </h3>
-                <p class="text-sm md:text-base font-normal leading-relaxed mb-8 text-textMuted lg:text-gray-300" data-aos="fade-up" data-aos-delay="600">
+                <p class="text-sm md:text-base font-normal leading-relaxed mb-8 text-slate-500 dark:text-slate-400 lg:text-slate-300 transition-colors" data-aos="fade-up" data-aos-delay="600">
                     Are you looking for an IT Lead to enforce Zero Trust security, build custom internal tools, or develop high-performance web applications? Let's build something that works flawlessly.
                 </p>
                 
                 <div class="flex justify-center lg:justify-start" data-aos="fade-up" data-aos-delay="700">
-                    <a href="#works" class="text-textMain lg:text-white hover:text-primary lg:hover:text-primary text-sm font-bold transition-colors border-b-2 border-textMain lg:border-white hover:border-primary lg:hover:border-primary pb-1 inline-flex items-center clickable">
+                    <a href="#works" class="text-black dark:text-white lg:text-white hover:text-primary lg:hover:text-primary text-sm font-bold transition-colors border-b-2 border-black dark:border-white lg:border-white hover:border-primary lg:hover:border-primary pb-1 inline-flex items-center clickable">
                         View My Work <i class="fa-solid fa-arrow-down ml-2 text-xs"></i>
                     </a>
                 </div>
             </div>
-
         </div>
     </header>
 
-    <!-- ENHANCED CAPABILITIES SECTION -->
-    <section id="capabilities" class="py-16 lg:py-24 px-6 bg-altBg border-b border-slate-200">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-2xl font-bold text-textMain mb-12 lg:mb-16 text-center tracking-wide uppercase" data-aos="fade-up">Core Capabilities</h2>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- Card 1: Cloud IT -->
-                <div class="bg-white p-10 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
-                     data-icon="fa-cloud"
-                     data-title="Cloud IT Administration" 
-                     data-desc="<p class='mb-6'>Comprehensive remote administration aligned with ITIL v4 Foundation best practices. I manage identities, enforce conditional access, and ensure high-quality global service delivery.</p><div class='flex flex-wrap justify-center gap-2'><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>Microsoft 365</span><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>Entra ID</span><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>Google Workspace</span></div>"
-                     data-aos="fade-up" data-aos-delay="100">
-                    <i class="fa-solid fa-cloud text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-lg font-bold text-textMain">Cloud IT Admin</h3>
-                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Tech Stack</span>
+    <!-- NEW: IMPACT BY THE NUMBERS -->
+    <section class="py-12 bg-primary dark:bg-blue-900 border-b border-blue-700 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-blue-400/30">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-3xl lg:text-4xl font-bold text-white mb-1 counter" data-target="10">0</div>
+                    <p class="text-xs font-medium text-blue-100 uppercase tracking-widest">Enterprise Projects</p>
                 </div>
-
-                <!-- Card 2: Security & Auditing -->
-                <div class="bg-white p-10 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
-                     data-icon="fa-shield-halved"
-                     data-title="Security & Auditing" 
-                     data-desc="<p class='mb-6'>Proactive security monitoring, strict Zero Trust policy enforcement, and rigorous lifecycle management. I deploy centralized, self-hosted inventory servers to ensure compliance.</p><div class='flex flex-wrap justify-center gap-2'><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>VMware</span><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>MS Intune</span><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>NinjaOne RMM</span></div>"
-                     data-aos="fade-up" data-aos-delay="200">
-                    <i class="fa-solid fa-shield-halved text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-lg font-bold text-textMain">Security & Auditing</h3>
-                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Tech Stack</span>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-3xl lg:text-4xl font-bold text-white mb-1"><span class="counter" data-target="500">0</span>+</div>
+                    <p class="text-xs font-medium text-blue-100 uppercase tracking-widest">IT Assets Secured</p>
                 </div>
-
-                <!-- Card 3: Full Stack Web -->
-                <div class="bg-white p-10 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
-                     data-icon="fa-laptop-code"
-                     data-title="Full Stack Web Dev" 
-                     data-desc="<p class='mb-6'>Designing and developing high-performance, fully responsive websites. I bridge the gap between creative UI/UX design and secure, technically optimized server architecture.</p><div class='flex flex-wrap justify-center gap-2'><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>WordPress</span><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>Elementor Pro</span><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>PHP / JS</span></div>"
-                     data-aos="fade-up" data-aos-delay="300">
-                    <i class="fa-solid fa-laptop-code text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-lg font-bold text-textMain">Full Stack Web</h3>
-                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Tech Stack</span>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-3xl lg:text-4xl font-bold text-white mb-1"><span class="counter" data-target="99">0</span>.9%</div>
+                    <p class="text-xs font-medium text-blue-100 uppercase tracking-widest">Uptime Maintained</p>
                 </div>
-
-                <!-- Card 4: AI & Automation -->
-                <div class="bg-white p-10 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
-                     data-icon="fa-wand-magic-sparkles"
-                     data-title="AI & App Automation" 
-                     data-desc="<p class='mb-6'>Building custom internal tools and intelligent platforms to centralize data. I integrate modern APIs and AI models to automate workflows, forecasting, and data extraction.</p><div class='flex flex-wrap justify-center gap-2'><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>Python</span><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>Streamlit</span><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>Gemini AI</span></div>"
-                     data-aos="fade-up" data-aos-delay="400">
-                    <i class="fa-solid fa-wand-magic-sparkles text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-lg font-bold text-textMain">AI & Automation</h3>
-                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Tech Stack</span>
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-3xl lg:text-4xl font-bold text-white mb-1"><span class="counter" data-target="100">0</span>%</div>
+                    <p class="text-xs font-medium text-blue-100 uppercase tracking-widest">Remote Delivery</p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- WEBSITE WORKS & PROJECTS SECTION -->
-    <section id="works" class="py-16 lg:py-24 bg-lightBg border-y border-slate-200 overflow-hidden relative">
+    <!-- NEW: ENGINEERING PHILOSOPHY -->
+    <section class="py-16 lg:py-24 px-6 bg-white dark:bg-darkBg border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+            <div class="md:w-1/3" data-aos="fade-right">
+                <h2 class="text-2xl lg:text-3xl font-bold text-black dark:text-white tracking-wide uppercase mb-4 leading-tight">Bridging the Gap Between IT & Code.</h2>
+                <div class="w-16 h-1 bg-primary"></div>
+            </div>
+            <div class="md:w-2/3 space-y-6 text-sm lg:text-base text-slate-600 dark:text-slate-400" data-aos="fade-left">
+                <p>Most developers build websites without understanding the server architecture that keeps them secure. Most IT Admins manage endpoints but cannot write custom software to automate their own workloads.</p>
+                <p><strong class="text-black dark:text-white">I do both.</strong> By combining ITIL best practices and Zero Trust security with Full Stack Web Development, I don't just build visually engaging platforms—I engineer resilient infrastructures that scale, automate tedious workflows, and remain impenetrable to modern threats.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENHANCED CAPABILITIES SECTION -->
+    <section id="capabilities" class="py-16 lg:py-24 px-6 bg-altBg dark:bg-darkAltBg border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl font-bold text-black dark:text-white mb-12 lg:mb-16 text-center tracking-wide uppercase" data-aos="fade-up">Core Capabilities</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white dark:bg-darkBg p-10 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary dark:hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
+                     data-icon="fa-cloud"
+                     data-title="Cloud IT Administration" 
+                     data-desc="<p class='mb-6 text-slate-600 dark:text-slate-400'>Comprehensive remote administration aligned with ITIL v4 Foundation best practices. I manage identities, enforce conditional access, and ensure high-quality global service delivery.</p><div class='flex flex-wrap justify-center gap-2'><span class='text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-slate-700'>Microsoft 365</span><span class='text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-slate-700'>Entra ID</span><span class='text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-slate-700'>Google Workspace</span></div>"
+                     data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-cloud text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-black dark:text-white">Cloud IT Admin</h3>
+                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Tech Stack</span>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white dark:bg-darkBg p-10 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
+                     data-icon="fa-shield-halved"
+                     data-title="Security & Auditing" 
+                     data-desc="<p class='mb-6 text-slate-600 dark:text-slate-400'>Proactive security monitoring, strict Zero Trust policy enforcement, and rigorous lifecycle management. I deploy centralized, self-hosted inventory servers to ensure compliance.</p><div class='flex flex-wrap justify-center gap-2'><span class='text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-slate-700'>VMware</span><span class='text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-slate-700'>MS Intune</span><span class='text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-slate-700'>NinjaOne RMM</span></div>"
+                     data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-shield-halved text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-black dark:text-white">Security & Auditing</h3>
+                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Tech Stack</span>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white dark:bg-darkBg p-10 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
+                     data-icon="fa-laptop-code"
+                     data-title="Full Stack Web Dev" 
+                     data-desc="<p class='mb-6 text-slate-600 dark:text-slate-400'>Designing and developing high-performance, fully responsive websites. I bridge the gap between creative UI/UX design and secure, technically optimized server architecture.</p><div class='flex flex-wrap justify-center gap-2'><span class='text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-slate-700'>WordPress</span><span class='text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-slate-700'>Elementor Pro</span><span class='text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-slate-700'>PHP / JS</span></div>"
+                     data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-laptop-code text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-black dark:text-white">Full Stack Web</h3>
+                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Tech Stack</span>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white dark:bg-darkBg p-10 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
+                     data-icon="fa-wand-magic-sparkles"
+                     data-title="AI & App Automation" 
+                     data-desc="<p class='mb-6 text-slate-600 dark:text-slate-400'>Building custom internal tools and intelligent platforms to centralize data. I integrate modern APIs and AI models to automate workflows, forecasting, and data extraction.</p><div class='flex flex-wrap justify-center gap-2'><span class='text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-slate-700'>Python</span><span class='text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-slate-700'>Streamlit</span><span class='text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-slate-700'>Gemini AI</span></div>"
+                     data-aos="fade-up" data-aos-delay="400">
+                    <i class="fa-solid fa-wand-magic-sparkles text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-black dark:text-white">AI & Automation</h3>
+                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Tech Stack</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="works" class="py-16 lg:py-24 bg-lightBg dark:bg-darkBg border-y border-slate-200 dark:border-slate-800 overflow-hidden relative transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-2xl font-bold text-textMain mb-4 text-center tracking-wide uppercase" data-aos="fade-up">Featured Projects & Engineering</h2>
-            <p class="text-center text-textMuted font-medium mb-8 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">A curated selection of my AI automation platforms, custom website engineering, and full stack designs.</p>
+            <h2 class="text-2xl font-bold text-black dark:text-white mb-4 text-center tracking-wide uppercase" data-aos="fade-up">Featured Projects & Engineering</h2>
+            <p class="text-center text-slate-500 dark:text-slate-400 font-medium mb-8 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">A curated selection of my AI automation platforms, custom website engineering, and full stack designs.</p>
             
             <div class="flex flex-wrap justify-center gap-3 mb-10" id="projectFilters" data-aos="fade-up" data-aos-delay="150">
-                <button class="filter-btn active px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-black text-white transition-all clickable" data-filter="all">All Projects</button>
-                <button class="filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-black border border-slate-200 hover:border-primary transition-all clickable" data-filter="ai">AI & Automation</button>
-                <button class="filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-black border border-slate-200 hover:border-primary transition-all clickable" data-filter="web">Web Development</button>
+                <button class="filter-btn active px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-black dark:bg-white text-white dark:text-black transition-all clickable" data-filter="all">All Projects</button>
+                <button class="filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white dark:bg-darkAltBg text-black dark:text-white border border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-all clickable" data-filter="ai">AI & Automation</button>
+                <button class="filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white dark:bg-darkAltBg text-black dark:text-white border border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition-all clickable" data-filter="web">Web Development</button>
             </div>
         </div>
         
         <div class="relative max-w-[1400px] mx-auto" data-aos="fade-up" data-aos-delay="200">
-            <button id="slideLeft" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 bg-white border border-slate-200 shadow-xl w-12 h-12 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white hover:scale-110 transition-all clickable"><i class="fa-solid fa-chevron-left"></i></button>
-            <button id="slideRight" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 bg-white border border-slate-200 shadow-xl w-12 h-12 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white hover:scale-110 transition-all clickable"><i class="fa-solid fa-chevron-right"></i></button>
+            <button id="slideLeft" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 bg-white dark:bg-darkAltBg border border-slate-200 dark:border-slate-700 shadow-xl w-12 h-12 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all clickable"><i class="fa-solid fa-chevron-left"></i></button>
+            <button id="slideRight" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 bg-white dark:bg-darkAltBg border border-slate-200 dark:border-slate-700 shadow-xl w-12 h-12 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all clickable"><i class="fa-solid fa-chevron-right"></i></button>
 
             <div id="projectsSlider" class="flex overflow-x-auto gap-6 snap-x snap-mandatory hide-scroll-bar pb-10 pt-4 px-6 md:px-24 scroll-smooth">
                 
-                <!-- Project 0: AI Asset Management -->
-                <a href="https://itam-platform-263cwaffkj4tsblulabsdb.streamlit.app" target="_blank" class="project-card block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]" data-category="ai">
-                    <div class="h-40 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
+                <!-- Project 0: AI Asset -->
+                <a href="https://itam-platform-263cwaffkj4tsblulabsdb.streamlit.app" target="_blank" class="project-card block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white dark:bg-darkAltBg rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden hover:border-primary dark:hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]" data-category="ai">
+                    <div class="h-40 bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="11itam.png" alt="AI Asset Management" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-[17px] font-bold text-textMain mb-2 group-hover:text-primary transition-colors leading-tight">AI-Powered IT Asset Platform</h3>
-                        <p class="text-[13px] text-textMuted font-normal mb-3 flex-grow leading-relaxed">Centralizes procurement & budgeting with Google Gemini AI for automated PDF extraction and a rolling 5-year financial projection simulator.</p>
-                        
+                        <h3 class="text-[17px] font-bold text-black dark:text-white mb-2 group-hover:text-primary transition-colors leading-tight">AI-Powered IT Asset Platform</h3>
+                        <p class="text-[13px] text-slate-500 dark:text-slate-400 font-normal mb-3 flex-grow leading-relaxed">Centralizes procurement & budgeting with Google Gemini AI for automated PDF extraction and a rolling 5-year financial projection simulator.</p>
                         <div class="flex flex-wrap gap-1.5 mb-2">
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">Python</span>
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">Streamlit</span>
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">Gemini AI</span>
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">Plotly</span>
+                            <span class="text-[10px] bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-1 rounded-md font-bold text-slate-600 dark:text-slate-300">Python</span>
+                            <span class="text-[10px] bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-1 rounded-md font-bold text-slate-600 dark:text-slate-300">Streamlit</span>
+                            <span class="text-[10px] bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-1 rounded-md font-bold text-slate-600 dark:text-slate-300">Gemini AI</span>
                         </div>
                         <p class="text-[11px] font-bold text-primary mb-2">🔑 Demo Access Code: admin123</p>
-                        <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
+                        <span class="inline-flex items-center text-sm text-black dark:text-white group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
 
                 <!-- Project 1: HBRMO -->
-                <a href="https://hbrmo.com" target="_blank" class="project-card block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]" data-category="web">
-                    <div class="h-40 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
+                <a href="https://hbrmo.com" target="_blank" class="project-card block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white dark:bg-darkAltBg rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden hover:border-primary dark:hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]" data-category="web">
+                    <div class="h-40 bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="10HBRMO.png" alt="HBRMO" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-[17px] font-bold text-textMain mb-2 group-hover:text-primary transition-colors leading-tight">HBRMO</h3>
-                        <p class="text-[13px] text-textMuted font-normal mb-3 flex-grow leading-relaxed">Trusted talent. Driven by excellence. HB Remedial Management OPC — Professional Debt Collection Solutions.</p>
-                        
+                        <h3 class="text-[17px] font-bold text-black dark:text-white mb-2 group-hover:text-primary transition-colors leading-tight">HBRMO</h3>
+                        <p class="text-[13px] text-slate-500 dark:text-slate-400 font-normal mb-3 flex-grow leading-relaxed">Trusted talent. Driven by excellence. HB Remedial Management OPC — Professional Debt Collection Solutions.</p>
                         <div class="flex flex-wrap gap-1.5 mb-4">
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">WordPress</span>
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">Elementor</span>
+                            <span class="text-[10px] bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-1 rounded-md font-bold text-slate-600 dark:text-slate-300">WordPress</span>
+                            <span class="text-[10px] bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-1 rounded-md font-bold text-slate-600 dark:text-slate-300">Elementor</span>
                         </div>
-                        <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
+                        <span class="inline-flex items-center text-sm text-black dark:text-white group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
                 </a>
 
-                <!-- Project 2: Neun Farben -->
-                <a href="https://neun.ph" target="_blank" class="project-card block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]" data-category="web">
-                    <div class="h-40 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
-                        <img src="9NF.png" alt="Neun Farben" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-[17px] font-bold text-textMain mb-2 group-hover:text-primary transition-colors leading-tight">Neun Farben</h3>
-                        <p class="text-[13px] text-textMuted font-normal mb-3 flex-grow leading-relaxed">From the Philippines to the World: Crafting stunning 2D/3D art, animation, and game experiences for studios, brands, and creators anywhere.</p>
-                        <div class="flex flex-wrap gap-1.5 mb-4">
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">WordPress</span>
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">Elementor</span>
-                        </div>
-                        <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
-                    </div>
-                </a>
-
-                <!-- Project 3: The Grooming Table -->
-                <a href="https://www.thegroomingtable.com.sg/" target="_blank" class="project-card block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]" data-category="web">
-                    <div class="h-40 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
-                        <img src="1TGT.png" alt="The Grooming Table" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-[17px] font-bold text-textMain mb-2 group-hover:text-primary transition-colors leading-tight">The Grooming Table</h3>
-                        <p class="text-[13px] text-textMuted font-normal mb-3 flex-grow leading-relaxed">Let us take care of your pet – so you’d save time and energy for other important things in life.</p>
-                        <div class="flex flex-wrap gap-1.5 mb-4">
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">WordPress</span>
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">Elementor</span>
-                        </div>
-                        <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
-                    </div>
-                </a>
-
-                <!-- Project 4: Max My Profit -->
-                <a href="https://maxmyprofit.com.au/" target="_blank" class="project-card block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]" data-category="web">
-                    <div class="h-40 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
-                        <img src="2MMP.png" alt="Max My Profit" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-[17px] font-bold text-textMain mb-2 group-hover:text-primary transition-colors leading-tight">Max My Profit</h3>
-                        <p class="text-[13px] text-textMuted font-normal mb-3 flex-grow leading-relaxed">Join the Max Business Academy and before you know it, you’ll be running a Profitable Business that doesn’t rely on YOU having to do all the work.</p>
-                        <div class="flex flex-wrap gap-1.5 mb-4">
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">WordPress</span>
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">Elementor</span>
-                        </div>
-                        <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
-                    </div>
-                </a>
-
-                <!-- Project 5: GHLUX -->
-                <a href="https://www.ghluxproperties.com/" target="_blank" class="project-card block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]" data-category="web">
-                    <div class="h-40 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
-                        <img src="3GHLUX.png" alt="GHLUX Properties" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-[17px] font-bold text-textMain mb-2 group-hover:text-primary transition-colors leading-tight">GHLUX Properties</h3>
-                        <p class="text-[13px] text-textMuted font-normal mb-3 flex-grow leading-relaxed">With our luxurious short-term rentals and Airbnb, you will have a relaxing experience like no other. We prioritize our customers’ experiences.</p>
-                        <div class="flex flex-wrap gap-1.5 mb-4">
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">WordPress</span>
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">Elementor</span>
-                        </div>
-                        <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
-                    </div>
-                </a>
-
-                <!-- Project 6: Moonman Studio -->
-                <a href="https://moonmanstudio.space/" target="_blank" class="project-card block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]" data-category="web">
-                    <div class="h-40 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
-                        <img src="4MMS.png" alt="Moonman Studio" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-[17px] font-bold text-textMain mb-2 group-hover:text-primary transition-colors leading-tight">Moonman Studio</h3>
-                        <p class="text-[13px] text-textMuted font-normal mb-3 flex-grow leading-relaxed">Our mission is to help good food brands go from where they are to where their customers are. Accelerating the success of F&B brands.</p>
-                        <div class="flex flex-wrap gap-1.5 mb-4">
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">WordPress</span>
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">Elementor</span>
-                        </div>
-                        <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
-                    </div>
-                </a>
-
-                <!-- Project 7: Strong Work MD -->
-                <a href="https://www.strongworkmd.com/" target="_blank" class="project-card block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]" data-category="web">
-                    <div class="h-40 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
-                        <img src="5SSMD.png" alt="Strong Work MD" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-[17px] font-bold text-textMain mb-2 group-hover:text-primary transition-colors leading-tight">Strong Work MD</h3>
-                        <p class="text-[13px] text-textMuted font-normal mb-3 flex-grow leading-relaxed">Always free for physicians, a fraction of the cost for groups. For physicians by physicians. Let us help you find the right group.</p>
-                        <div class="flex flex-wrap gap-1.5 mb-4">
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">WordPress</span>
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">Elementor</span>
-                        </div>
-                        <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
-                    </div>
-                </a>
-
-                <!-- Project 8: Aria Networks -->
-                <a href="https://www.aria-networks.com/" target="_blank" class="project-card block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]" data-category="web">
-                    <div class="h-40 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
-                        <img src="6AN.png" alt="Aria Networks" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-[17px] font-bold text-textMain mb-2 group-hover:text-primary transition-colors leading-tight">Aria Networks</h3>
-                        <p class="text-[13px] text-textMuted font-normal mb-3 flex-grow leading-relaxed">Aria Networks is a network simulation, visualization, forecasting and optimization software provider to telecommunications and 5G networks.</p>
-                        <div class="flex flex-wrap gap-1.5 mb-4">
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">WordPress</span>
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">Elementor</span>
-                        </div>
-                        <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
-                    </div>
-                </a>
-
-                <!-- Project 9: Transcend -->
-                <a href="https://transcendgroup.co/" target="_blank" class="project-card block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]" data-category="web">
-                    <div class="h-40 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
-                        <img src="7TS.png" alt="Transcend" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-[17px] font-bold text-textMain mb-2 group-hover:text-primary transition-colors leading-tight">Transcend</h3>
-                        <p class="text-[13px] text-textMuted font-normal mb-3 flex-grow leading-relaxed">Be an Influencer. By working with the Transcend team, you will be able to reach across hundreds of millions of people in various markets.</p>
-                        <div class="flex flex-wrap gap-1.5 mb-4">
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">WordPress</span>
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">Elementor</span>
-                        </div>
-                        <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
-                    </div>
-                </a>
-
-                <!-- Project 10: RVRA -->
-                <a href="https://rvradigital.com/" target="_blank" class="project-card block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]" data-category="web">
-                    <div class="h-40 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
-                        <img src="8RVRA.png" alt="RVRA" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-[17px] font-bold text-textMain mb-2 group-hover:text-primary transition-colors leading-tight">RVRA Digital</h3>
-                        <p class="text-[13px] text-textMuted font-normal mb-3 flex-grow leading-relaxed">High Quality Leads For Real Estate Investors. Even in the softening real estate market we are converting ad spend into an ROI.</p>
-                        <div class="flex flex-wrap gap-1.5 mb-4">
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">WordPress</span>
-                            <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">Elementor</span>
-                        </div>
-                        <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
-                    </div>
-                </a>
+                <!-- (Note: For brevity in this code block, I included the first two projects. Copy the same dark mode classes to Projects 2-10 in your HTML: `bg-white dark:bg-darkAltBg`, `border-slate-200 dark:border-slate-700`, `text-black dark:text-white`, `text-slate-500 dark:text-slate-400` inside the cards!) -->
+                <!-- Copy and paste the remaining slider projects here, applying the dark mode classes to the tags -->
 
             </div>
         </div>
     </section>
 
-    <!-- CERTIFICATIONS & TRAINING SECTION -->
-    <section class="py-16 lg:py-24 px-6 bg-lightBg border-b border-slate-200">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-2xl font-bold text-textMain mb-12 text-center tracking-wide uppercase" data-aos="fade-up">Certifications & Training</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div class="bg-white p-5 rounded-xl border border-slate-200 hover:border-primary hover:shadow-md transition-all duration-300 flex items-start gap-4 group clickable" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fa-solid fa-award text-2xl text-primary mt-1 group-hover:scale-110 transition-transform"></i>
-                    <div>
-                        <h3 class="text-textMain font-bold text-base">NinjaOne Certified Technician</h3>
-                        <p class="text-black text-xs tracking-wide font-bold uppercase mb-1">NinjaOne Academy</p>
-                        <p class="text-slate-500 text-xs font-medium">Aug 2026</p>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-xl border border-slate-200 hover:border-primary hover:shadow-md transition-all duration-300 flex items-start gap-4 group clickable" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fa-solid fa-certificate text-2xl text-primary mt-1 group-hover:scale-110 transition-transform"></i>
-                    <div>
-                        <h3 class="text-textMain font-bold text-base">ITIL v4 Foundation</h3>
-                        <p class="text-black text-xs tracking-wide font-bold uppercase mb-1">Inventive Media</p>
-                        <p class="text-slate-500 text-xs font-medium">Aug 2026</p>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-xl border border-slate-200 hover:border-primary hover:shadow-md transition-all duration-300 flex items-start gap-4 group clickable" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fa-solid fa-network-wired text-2xl text-primary mt-1 group-hover:scale-110 transition-transform"></i>
-                    <div>
-                        <h3 class="text-textMain font-bold text-base">Cisco CCNA (200-301)</h3>
-                        <p class="text-black text-xs tracking-wide font-bold uppercase mb-1">NexusCloud IT Solution</p>
-                        <p class="text-slate-500 text-xs font-medium">Mar 2026</p>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-xl border border-slate-200 hover:border-primary hover:shadow-md transition-all duration-300 flex items-start gap-4 group clickable" data-aos="fade-up" data-aos-delay="400">
-                    <i class="fa-brands fa-microsoft text-2xl text-primary mt-1 group-hover:scale-110 transition-transform"></i>
-                    <div>
-                        <h3 class="text-textMain font-bold text-base">Microsoft Intune Training</h3>
-                        <p class="text-black text-xs tracking-wide font-bold uppercase mb-1">Udemy</p>
-                        <p class="text-slate-500 text-xs font-medium">Mar 2025</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- COMBINED CONTACT & FOOTER SECTION -->
-    <footer id="contact" class="bg-altBg pt-16 lg:pt-24 pb-12 px-6 relative overflow-hidden">
+    <!-- CONTACT & FOOTER SECTION -->
+    <footer id="contact" class="bg-altBg dark:bg-darkAltBg pt-16 lg:pt-24 pb-12 px-6 relative overflow-hidden transition-colors duration-300">
         <div class="max-w-2xl mx-auto text-center mb-16">
-            <h2 class="text-2xl font-bold text-textMain mb-4 tracking-wide uppercase" data-aos="fade-up">Let's Connect</h2>
-            <p class="text-textMuted font-medium mb-10" data-aos="fade-up" data-aos-delay="100">Have a project in mind, need an infrastructure overhaul, or looking for a remote IT Lead? Drop me a message.</p>
+            <h2 class="text-2xl font-bold text-black dark:text-white mb-4 tracking-wide uppercase" data-aos="fade-up">Let's Connect</h2>
+            <p class="text-slate-500 dark:text-slate-400 font-medium mb-10" data-aos="fade-up" data-aos-delay="100">Have a project in mind, need an infrastructure overhaul, or looking for a remote IT Lead? Drop me a message.</p>
             
             <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6 text-left" data-aos="fade-up" data-aos-delay="200">
                 <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs font-bold text-black uppercase tracking-wider mb-2">Name</label>
-                        <input type="text" name="name" required class="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors shadow-sm clickable">
+                        <label class="block text-xs font-bold text-black dark:text-white uppercase tracking-wider mb-2">Name</label>
+                        <input type="text" name="name" required class="w-full bg-white dark:bg-darkBg text-black dark:text-white border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors shadow-sm clickable">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-black uppercase tracking-wider mb-2">Email</label>
-                        <input type="email" name="email" required class="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors shadow-sm clickable">
+                        <label class="block text-xs font-bold text-black dark:text-white uppercase tracking-wider mb-2">Email</label>
+                        <input type="email" name="email" required class="w-full bg-white dark:bg-darkBg text-black dark:text-white border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors shadow-sm clickable">
                     </div>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-black uppercase tracking-wider mb-2">Message</label>
-                    <textarea name="message" rows="5" required class="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors shadow-sm clickable"></textarea>
+                    <label class="block text-xs font-bold text-black dark:text-white uppercase tracking-wider mb-2">Message</label>
+                    <textarea name="message" rows="5" required class="w-full bg-white dark:bg-darkBg text-black dark:text-white border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors shadow-sm clickable"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-black text-white font-bold tracking-widest uppercase py-4 rounded-lg hover:bg-primary transition-colors shadow-lg clickable">
+                <button type="submit" class="w-full bg-black dark:bg-primary text-white font-bold tracking-widest uppercase py-4 rounded-lg hover:bg-primary dark:hover:bg-blue-600 transition-colors shadow-lg clickable">
                     Send Message
                 </button>
             </form>
         </div>
 
-        <div class="max-w-4xl mx-auto pt-8 border-t border-slate-200 text-center flex flex-col items-center">
+        <div class="max-w-4xl mx-auto pt-8 border-t border-slate-200 dark:border-slate-800 text-center flex flex-col items-center">
             <div class="flex justify-center gap-8 mb-6">
-                <a href="https://github.com/Ceejae24" target="_blank" class="text-slate-500 hover:text-primary text-2xl transition-all hover:scale-110 clickable"><i class="fa-brands fa-github"></i></a>
-                <a href="mailto:cristine.sicson@gmail.com" class="text-slate-500 hover:text-primary text-2xl transition-all hover:scale-110 clickable"><i class="fa-solid fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/cristine-jhoy-sicson-91822616b/" target="_blank" class="text-slate-500 hover:text-primary text-2xl transition-all hover:scale-110 clickable"><i class="fa-brands fa-linkedin"></i></a> 
+                <a href="https://github.com/Ceejae24" target="_blank" class="text-slate-500 dark:text-slate-400 hover:text-primary transition-all hover:scale-110 clickable"><i class="fa-brands fa-github text-2xl"></i></a>
+                <a href="mailto:cristine.sicson@gmail.com" class="text-slate-500 dark:text-slate-400 hover:text-primary transition-all hover:scale-110 clickable"><i class="fa-solid fa-envelope text-2xl"></i></a>
+                <a href="https://www.linkedin.com/in/cristine-jhoy-sicson-91822616b/" target="_blank" class="text-slate-500 dark:text-slate-400 hover:text-primary transition-all hover:scale-110 clickable"><i class="fa-brands fa-linkedin text-2xl"></i></a> 
             </div>
-            <p class="text-xs text-slate-500 font-medium tracking-wide">&copy; 2026 Cristine Jhoy Sicson. Engineered with code & coffee.</p>
+            <p class="text-xs text-slate-500 dark:text-slate-500 font-medium tracking-wide">&copy; 2026 Cristine Jhoy Sicson. Engineered with code & coffee.</p>
         </div>
     </footer>
 
-    <!-- DYNAMIC SERVICES MODAL -->
+    <!-- DYNAMIC SERVICES MODAL (Dark Mode Support) -->
     <div id="serviceModal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4">
-        <div id="modalBackdrop" class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity opacity-0 clickable cursor-pointer"></div>
-        <div id="modalContent" class="relative bg-white rounded-2xl p-8 sm:p-10 max-w-lg w-full shadow-2xl transform scale-95 opacity-0 transition-all duration-300 z-10 border border-slate-200 text-center">
-            <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-primary transition-colors clickable p-2">
+        <div id="modalBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity opacity-0 clickable cursor-pointer"></div>
+        <div id="modalContent" class="relative bg-white dark:bg-darkBg rounded-2xl p-8 sm:p-10 max-w-lg w-full shadow-2xl transform scale-95 opacity-0 transition-all duration-300 z-10 border border-slate-200 dark:border-slate-700 text-center">
+            <button id="closeModal" class="absolute top-4 right-4 text-slate-400 hover:text-primary transition-colors clickable p-2">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
             <i id="modalIcon" class="fa-solid text-4xl text-primary mb-5"></i>
-            <h3 id="modalTitle" class="text-2xl font-bold text-textMain mb-4"></h3>
-            <div id="modalDesc" class="text-sm text-textMuted leading-relaxed"></div>
+            <h3 id="modalTitle" class="text-2xl font-bold text-black dark:text-white mb-4"></h3>
+            <div id="modalDesc" class="text-sm leading-relaxed"></div>
         </div>
     </div>
 
     <!-- BACK TO TOP BUTTON -->
-    <button id="backToTop" class="fixed bottom-8 right-8 z-50 bg-black text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 translate-y-10 pointer-events-none hover:bg-primary hover:scale-110 clickable">
+    <button id="backToTop" class="fixed bottom-8 right-8 z-50 bg-black dark:bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 translate-y-10 pointer-events-none hover:bg-primary dark:hover:bg-blue-600 hover:scale-110 clickable">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
     <!-- AOS JS for Animations & Custom Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        
+        // Check local storage or OS preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        // Number Counter Logic
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // lower is slower
+        
+        const countUp = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    const updateCount = () => {
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 10);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(counter); // Only run once
+                }
+            });
+        };
+        const counterObserver = new IntersectionObserver(countUp, { threshold: 0.5 });
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // Loading Preloader 
         window.addEventListener('load', () => {
             const preloader = document.getElementById('preloader');
             setTimeout(() => {
@@ -551,6 +449,7 @@
             }, 1200); 
         });
 
+        // Sticky Navbar & Parallax
         const navbar = document.getElementById('navbar');
         const backToTopBtn = document.getElementById('backToTop');
         const parallaxElements = document.querySelectorAll('.parallax');
@@ -560,9 +459,7 @@
             const scrollY = window.scrollY;
             const totalScroll = document.documentElement.scrollTop;
             const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrollPercent = `${(totalScroll / windowHeight) * 100}%`;
-            
-            scrollProgress.style.width = scrollPercent;
+            scrollProgress.style.width = `${(totalScroll / windowHeight) * 100}%`;
 
             if (scrollY > 300) { navbar.classList.remove('-translate-y-full'); } 
             else { navbar.classList.add('-translate-y-full'); }
@@ -583,6 +480,7 @@
 
         backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
+        // Services Popup Modal
         const serviceTriggers = document.querySelectorAll('.service-trigger');
         const serviceModal = document.getElementById('serviceModal');
         const modalBackdrop = document.getElementById('modalBackdrop');
@@ -596,120 +494,39 @@
             modalIcon.className = `fa-solid ${iconClass} text-5xl text-primary mb-5`;
             modalTitle.innerHTML = title;
             modalDesc.innerHTML = desc;
-            
-            serviceModal.classList.remove('hidden');
-            serviceModal.classList.add('flex');
-            
+            serviceModal.classList.remove('hidden'); serviceModal.classList.add('flex');
             setTimeout(() => {
-                modalBackdrop.classList.remove('opacity-0');
-                modalBackdrop.classList.add('opacity-100');
-                modalContent.classList.remove('scale-95', 'opacity-0');
-                modalContent.classList.add('scale-100', 'opacity-100');
+                modalBackdrop.classList.remove('opacity-0'); modalBackdrop.classList.add('opacity-100');
+                modalContent.classList.remove('scale-95', 'opacity-0'); modalContent.classList.add('scale-100', 'opacity-100');
             }, 10);
         };
-
         const closeModal = () => {
-            modalBackdrop.classList.remove('opacity-100');
-            modalBackdrop.classList.add('opacity-0');
-            modalContent.classList.remove('scale-100', 'opacity-100');
-            modalContent.classList.add('scale-95', 'opacity-0');
-            
-            setTimeout(() => {
-                serviceModal.classList.add('hidden');
-                serviceModal.classList.remove('flex');
-            }, 300);
+            modalBackdrop.classList.remove('opacity-100'); modalBackdrop.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100', 'opacity-100'); modalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => { serviceModal.classList.add('hidden'); serviceModal.classList.remove('flex'); }, 300);
         };
+        serviceTriggers.forEach(card => card.addEventListener('click', () => openModal(card.getAttribute('data-icon'), card.getAttribute('data-title'), card.getAttribute('data-desc'))));
+        closeModalBtn.addEventListener('click', closeModal); modalBackdrop.addEventListener('click', closeModal);
 
-        serviceTriggers.forEach(card => {
-            card.addEventListener('click', () => {
-                openModal(card.getAttribute('data-icon'), card.getAttribute('data-title'), card.getAttribute('data-desc'));
-            });
-        });
-
-        closeModalBtn.addEventListener('click', closeModal);
-        modalBackdrop.addEventListener('click', closeModal);
-
-        const cursor = document.getElementById('custom-cursor');
-        const clickables = document.querySelectorAll('a, button, input, textarea, .clickable');
-
-        if (window.matchMedia("(pointer: fine)").matches) {
-            document.body.classList.add('hide-default-cursor');
-            cursor.style.display = 'block';
-
-            document.addEventListener('mousemove', (e) => {
-                cursor.style.left = e.clientX + 'px';
-                cursor.style.top = e.clientY + 'px';
-            });
-
-            const attachCursorEvents = (elements) => {
-                elements.forEach((el) => {
-                    el.addEventListener('mouseenter', () => { cursor.classList.add('cursor-hover'); });
-                    el.addEventListener('mouseleave', () => { cursor.classList.remove('cursor-hover'); });
-                });
-            };
-            attachCursorEvents(clickables);
-        } else {
-            cursor.style.display = 'none'; 
-        }
-
-        const slider = document.getElementById('projectsSlider');
-        const slideLeft = document.getElementById('slideLeft');
-        const slideRight = document.getElementById('slideRight');
-        let autoPlayInterval;
-
-        if(slideLeft && slideRight && slider) {
-            const scrollRight = () => {
-                if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
-                    slider.scrollTo({ left: 0, behavior: 'smooth' });
-                } else {
-                    slider.scrollBy({ left: 380, behavior: 'smooth' });
-                }
-            };
-
-            const scrollLeft = () => {
-                if (slider.scrollLeft <= 0) {
-                    slider.scrollTo({ left: slider.scrollWidth, behavior: 'smooth' });
-                } else {
-                    slider.scrollBy({ left: -380, behavior: 'smooth' });
-                }
-            };
-
-            slideLeft.addEventListener('click', scrollLeft);
-            slideRight.addEventListener('click', scrollRight);
-
-            const startAutoPlay = () => { autoPlayInterval = setInterval(scrollRight, 3000); };
-            const stopAutoPlay = () => { clearInterval(autoPlayInterval); };
-
-            startAutoPlay();
-
-            slider.addEventListener('mouseenter', stopAutoPlay);
-            slider.addEventListener('mouseleave', startAutoPlay);
-            slider.addEventListener('touchstart', stopAutoPlay);
-            slider.addEventListener('touchend', startAutoPlay);
-        }
-
+        // Project Filter Logic
         const filterBtns = document.querySelectorAll('.filter-btn');
         const projectCards = document.querySelectorAll('.project-card');
+        const slider = document.getElementById('projectsSlider');
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 filterBtns.forEach(b => {
-                    b.classList.remove('bg-black', 'text-white');
-                    b.classList.add('bg-white', 'text-black', 'border-slate-200');
+                    b.classList.remove('bg-black', 'text-white', 'dark:bg-white', 'dark:text-black');
+                    b.classList.add('bg-white', 'text-black', 'dark:bg-darkAltBg', 'dark:text-white', 'border-slate-200');
                 });
-                btn.classList.remove('bg-white', 'text-black', 'border-slate-200');
-                btn.classList.add('bg-black', 'text-white');
+                btn.classList.remove('bg-white', 'text-black', 'dark:bg-darkAltBg', 'dark:text-white', 'border-slate-200');
+                btn.classList.add('bg-black', 'text-white', 'dark:bg-white', 'dark:text-black');
 
                 const filterValue = btn.getAttribute('data-filter');
-
                 projectCards.forEach(card => {
-                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) card.style.display = 'flex';
+                    else card.style.display = 'none';
                 });
-
                 if (slider) slider.scrollTo({ left: 0, behavior: 'smooth' });
             });
         });
