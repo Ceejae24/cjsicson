@@ -26,26 +26,24 @@
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        lightBg: '#ffffff',     // Crisp White
-                        altBg: '#f8fafc',       // Ultra-light minimalist slate/off-white for alternating sections
-                        darkBg: '#000000',      // Pure Black for the banner
-                        darkTextMain: '#ffffff', // White text
-                        darkTextMuted: '#a3a3a3', // Neutral light gray text
-                        accent: '#000000',      // Pure black for minimal global accents
-                        textMain: '#000000',    // Pure black text for light sections
-                        textMuted: '#525252',   // Dark gray for paragraphs
-                        primary: '#2563EB',     // Crisp, professional Tech Blue
-                        online: '#10B981'       // Emerald green for the active remote status
+                        lightBg: '#ffffff',     
+                        altBg: '#f8fafc',       
+                        darkBg: '#000000',      
+                        darkTextMain: '#ffffff', 
+                        darkTextMuted: '#a3a3a3', 
+                        accent: '#000000',      
+                        textMain: '#000000',    
+                        textMuted: '#525252',   
+                        primary: '#2563EB',     
+                        online: '#10B981'       
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Smooth scrolling for anchor links */
         html { scroll-behavior: smooth; }
         
-        /* Custom pulsing for the loader logo */
         @keyframes subtle-pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
@@ -54,45 +52,22 @@
             animation: subtle-pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
 
-        /* CUSTOM MINIMALIST SCROLLBAR */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f8fafc;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #2563EB;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #1d4ed8;
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
+        ::-webkit-scrollbar-thumb { background: #2563EB; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #1d4ed8; }
 
-        /* HIDE SCROLLBAR FOR THE SLIDER BUT KEEP FUNCTIONALITY */
         .hide-scroll-bar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
-        .hide-scroll-bar::-webkit-scrollbar {
-            display: none; /* Chrome, Safari and Opera */
-        }
+        .hide-scroll-bar::-webkit-scrollbar { display: none; }
 
-        /* CUSTOM AGENCY CURSOR CSS */
-        .hide-default-cursor, .hide-default-cursor * {
-            cursor: none !important;
-        }
+        .hide-default-cursor, .hide-default-cursor * { cursor: none !important; }
         #custom-cursor {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 10px;
-            height: 10px;
-            background-color: #2563EB;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
+            position: fixed; top: 0; left: 0; width: 10px; height: 10px;
+            background-color: #2563EB; border-radius: 50%; pointer-events: none;
+            z-index: 9999; transform: translate(-50%, -50%);
             transition: transform 0.2s ease-out, background-color 0.2s ease-out, border 0.2s ease-out;
             display: none; 
         }
@@ -105,31 +80,24 @@
 </head>
 <body class="bg-lightBg text-textMuted font-sans antialiased selection:bg-primary selection:text-white overflow-x-hidden">
 
-    <!-- THE CUSTOM AGENCY CURSOR -->
     <div id="custom-cursor"></div>
-
-    <!-- THE SCROLL PROGRESS BAR -->
     <div id="scrollProgress" class="fixed top-0 left-0 h-[2px] bg-primary z-[150] w-0 transition-all duration-75"></div>
 
-    <!-- FULL SCREEN PRELOADER -->
     <div id="preloader" class="fixed inset-0 z-[100] bg-darkBg flex items-center justify-center transition-transform duration-[1200ms] ease-in-out">
         <div class="text-white text-5xl md:text-6xl font-bold tracking-widest animate-subtle-pulse">
             CJ<span class="text-primary">.</span>
         </div>
     </div>
 
-    <!-- GLASSMORPHISM STICKY NAV BAR -->
+    <!-- STICKY NAV BAR -->
     <nav id="navbar" class="fixed top-0 left-0 w-full z-[90] bg-white/80 backdrop-blur-md border-b border-slate-200 transition-transform duration-500 -translate-y-full px-6 py-4 flex justify-between items-center shadow-sm mt-[2px]">
-        <!-- Logo -->
         <a href="#" class="text-xl lg:text-2xl font-bold text-black tracking-widest hover:text-primary transition-colors">CJ<span class="text-primary">.</span></a>
         
-        <!-- Desktop Links -->
         <div class="hidden md:flex gap-8 text-sm font-bold text-gray-500 uppercase tracking-widest">
+            <a href="#capabilities" class="hover:text-black transition-colors clickable">Capabilities</a>
             <a href="#works" class="hover:text-black transition-colors clickable">Projects</a>
-            <a href="#services" class="hover:text-black transition-colors clickable">Services</a>
         </div>
 
-        <!-- CTA Buttons -->
         <div class="flex items-center gap-4">
             <a href="https://github.com/Ceejae24" target="_blank" class="hidden sm:block text-gray-500 hover:text-primary transition-colors clickable text-lg"><i class="fa-brands fa-github"></i></a>
             <a href="CV_Sicson.pdf" download class="hidden sm:block text-xs font-bold text-gray-500 hover:text-primary uppercase tracking-wider transition-colors clickable"><i class="fa-solid fa-download mr-1"></i> CV</a>
@@ -139,28 +107,21 @@
 
     <!-- HERO SECTION -->
     <header class="relative min-h-[100dvh] lg:min-h-screen flex flex-col lg:flex-row items-center justify-center bg-darkBg overflow-hidden">
-        
-        <!-- TOP LEFT LOGO -->
         <div class="absolute top-8 left-6 lg:top-12 lg:left-12 z-50" data-aos="fade-down" data-aos-delay="200">
             <span class="text-2xl lg:text-3xl font-bold text-white tracking-widest">CJ<span class="text-primary">.</span></span>
         </div>
 
-        <!-- ALL BLACK BACKGROUND SYSTEM (Desktop) -->
         <div class="absolute inset-0 z-0 w-full h-full pointer-events-none hidden lg:block">
             <div class="parallax absolute top-1/2 right-0 w-80 h-80 bg-primary rounded-full blur-[150px] opacity-[0.12] -translate-y-1/2 translate-x-1/2" data-speed="0.2"></div>
         </div>
 
-        <!-- PORTRAIT IMAGE LAYER -->
         <div class="hidden lg:flex absolute inset-0 justify-center items-end z-10 pointer-events-none">
             <img src="Profile Transparent.png" alt="CJ Sicson" class="h-[90%] lg:h-[100%] w-auto max-w-none object-contain object-bottom relative z-10">
         </div>
 
-        <!-- CONTENT GRID -->
         <div class="max-w-7xl mx-auto w-full flex flex-col lg:grid lg:grid-cols-12 items-center lg:px-6 pt-0 lg:pt-28 pb-0 lg:pb-20 relative z-20 pointer-events-auto">
             
-            <!-- LEFT COLUMN: Intro -->
             <div class="order-1 lg:order-2 w-full lg:w-auto px-6 lg:px-0 pt-32 pb-8 lg:py-0 bg-darkBg lg:bg-transparent lg:col-span-5 lg:col-start-1 flex flex-col justify-center text-center lg:text-left drop-shadow-sm lg:drop-shadow-none">
-                
                 <h1 class="text-4xl sm:text-5xl lg:text-7xl font-light text-white mb-2 tracking-tight" data-aos="fade-up" data-aos-delay="300">
                     Hi, <br class="hidden lg:block"> I'm <span class="font-bold text-white">CJ</span>
                 </h1>
@@ -169,15 +130,12 @@
                 </h2>
                 
                 <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4" data-aos="fade-up" data-aos-delay="500">
-                    <a href="#contact" class="bg-white hover:bg-primary hover:text-white text-black font-medium py-3 px-8 rounded-lg transition-all duration-300 shadow-lg text-center clickable">
-                        Let's Connect
-                    </a>
+                    <a href="#contact" class="bg-white hover:bg-primary hover:text-white text-black font-medium py-3 px-8 rounded-lg transition-all duration-300 shadow-lg text-center clickable">Let's Connect</a>
                     <a href="CV_Sicson.pdf" download class="bg-transparent border border-gray-500 hover:border-primary text-white hover:bg-primary hover:text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 text-center flex items-center justify-center clickable">
                         <i class="fa-solid fa-file-pdf mr-2"></i> Download CV
                     </a>
                 </div>
 
-                <!-- Social Icons -->
                 <div class="flex gap-6 mt-10 lg:mt-12 justify-center lg:justify-start text-gray-400" data-aos="fade-up" data-aos-delay="600">
                     <a href="https://github.com/Ceejae24" target="_blank" class="hover:text-primary transition-colors clickable"><i class="fa-brands fa-github text-2xl"></i></a>
                     <a href="https://www.linkedin.com/in/cristine-jhoy-sicson-91822616b/" target="_blank" class="hover:text-primary transition-colors clickable"><i class="fa-brands fa-linkedin text-2xl"></i></a>
@@ -185,28 +143,21 @@
                 </div>
             </div>
 
-            <!-- MOBILE IMAGE -->
             <div class="order-2 lg:hidden w-full flex justify-center bg-darkBg px-6 pt-6 pb-0">
                 <img src="Profile Transparent.png" alt="CJ Sicson" class="h-[300px] sm:h-[380px] w-auto object-contain object-bottom drop-shadow-2xl" data-aos="zoom-in" data-aos-delay="400">
             </div>
 
-            <!-- RIGHT COLUMN: Bio & Remote Badge -->
             <div class="order-3 w-full lg:w-auto px-6 lg:px-0 pt-10 pb-16 lg:py-0 bg-lightBg lg:bg-transparent lg:col-span-4 lg:col-start-9 lg:pl-6 xl:pl-10 flex flex-col justify-center text-center lg:text-left drop-shadow-sm lg:drop-shadow-none relative">
-                
                 <div class="parallax hidden lg:block absolute -top-16 right-20 w-14 h-14 border-2 border-white rounded-full opacity-10" data-speed="-0.15"></div>
                 <div class="parallax hidden lg:block absolute top-10 right-8 w-4 h-4 bg-primary rounded-full shadow-lg opacity-40" data-speed="0.25"></div>
 
-                <!-- LOCATION & REMOTE BADGE -->
                 <div class="flex flex-wrap justify-center lg:justify-start items-center gap-3 mb-4" data-aos="fade-up" data-aos-delay="400">
                     <p class="text-gray-500 lg:text-gray-400 text-xs font-bold tracking-[0.2em] uppercase">Based in Philippines</p>
-                    
-                    <!-- Badges Wrapper -->
                     <div class="flex items-center gap-2">
                         <span class="flex items-center gap-1.5 px-3 py-1 border border-black/10 lg:border-gray-500/50 rounded-full bg-altBg lg:bg-transparent cursor-default whitespace-nowrap">
                             <i class="fa-solid fa-briefcase text-primary text-[10px]"></i>
                             <span class="text-[10px] font-bold tracking-[0.15em] uppercase text-textMain lg:text-white">3 Years Exp</span>
                         </span>
-
                         <span class="flex items-center gap-1.5 px-3 py-1 border border-black/10 lg:border-gray-500/50 rounded-full bg-altBg lg:bg-transparent cursor-default whitespace-nowrap">
                             <span class="w-1.5 h-1.5 rounded-full bg-online animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)]"></span>
                             <span class="text-[10px] font-bold tracking-[0.15em] uppercase text-textMain lg:text-white">100% Remote</span>
@@ -218,7 +169,7 @@
                     I engineer secure IT infrastructures, build full stack web platforms, and automate workflows with AI.
                 </h3>
                 <p class="text-sm md:text-base font-normal leading-relaxed mb-8 text-textMuted lg:text-gray-300" data-aos="fade-up" data-aos-delay="600">
-                    Are you looking for an IT Lead to engineer a Zero Trust environment, build custom internal tools, or develop high-performance web applications? Let's build something that works flawlessly.
+                    Are you looking for an IT Lead to enforce Zero Trust security, build custom internal tools, or develop high-performance web applications? Let's build something that works flawlessly.
                 </p>
                 
                 <div class="flex justify-center lg:justify-start" data-aos="fade-up" data-aos-delay="700">
@@ -231,59 +182,57 @@
         </div>
     </header>
 
-    <!-- CORE COMPETENCIES SECTION -->
-    <section class="py-16 lg:py-24 px-6 bg-altBg border-b border-slate-200">
+    <!-- ENHANCED CAPABILITIES SECTION -->
+    <section id="capabilities" class="py-16 lg:py-24 px-6 bg-altBg border-b border-slate-200">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-2xl font-bold text-textMain mb-12 text-center tracking-wide uppercase" data-aos="fade-up">Technical Arsenal</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Cloud & Identity -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fa-solid fa-cloud text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-lg font-bold text-textMain mb-4">Cloud & Infrastructure</h3>
-                    <ul class="space-y-3 text-sm font-medium text-textMuted">
-                        <li><span class="text-primary mr-2">✦</span>Microsoft 365 & Entra ID</li>
-                        <li><span class="text-primary mr-2">✦</span>Google Workspace Admin</li>
-                        <li><span class="text-primary mr-2">✦</span>Synology NAS & Disaster Recovery</li>
-                        <li><span class="text-primary mr-2">✦</span>DNS, SSL & Web Server Hosting</li>
-                    </ul>
+            <h2 class="text-2xl font-bold text-textMain mb-12 lg:mb-16 text-center tracking-wide uppercase" data-aos="fade-up">Core Capabilities</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Card 1: Cloud IT -->
+                <div class="bg-white p-10 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
+                     data-icon="fa-cloud"
+                     data-title="Cloud IT Administration" 
+                     data-desc="<p class='mb-6'>Comprehensive remote administration aligned with ITIL v4 Foundation best practices. I manage identities, enforce conditional access, and ensure high-quality global service delivery.</p><div class='flex flex-wrap justify-center gap-2'><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>Microsoft 365</span><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>Entra ID</span><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>Google Workspace</span></div>"
+                     data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-cloud text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-textMain">Cloud IT Admin</h3>
+                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Tech Stack</span>
                 </div>
 
-                <!-- Web Development & Code -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fa-solid fa-code text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-lg font-bold text-textMain mb-4">Full Stack Web Dev</h3>
-                    <ul class="space-y-3 text-sm font-medium text-textMuted">
-                        <li><span class="text-primary mr-2">✦</span>WordPress & Elementor Pro</li>
-                        <li><span class="text-primary mr-2">✦</span>HTML5, Tailwind, JavaScript & PHP</li>
-                        <li><span class="text-primary mr-2">✦</span>Custom Theme & Plugin Integration</li>
-                        <li><span class="text-primary mr-2">✦</span>Technical SEO & Speed Optimization</li>
-                    </ul>
+                <!-- Card 2: Security & Auditing -->
+                <div class="bg-white p-10 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
+                     data-icon="fa-shield-halved"
+                     data-title="Security & Auditing" 
+                     data-desc="<p class='mb-6'>Proactive security monitoring, strict Zero Trust policy enforcement, and rigorous lifecycle management. I deploy centralized, self-hosted inventory servers to ensure compliance.</p><div class='flex flex-wrap justify-center gap-2'><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>VMware</span><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>MS Intune</span><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>NinjaOne RMM</span></div>"
+                     data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-shield-halved text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-textMain">Security & Auditing</h3>
+                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Tech Stack</span>
                 </div>
 
-                <!-- Endpoint & Security -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fa-solid fa-shield-halved text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-lg font-bold text-textMain mb-4">Security & Endpoints</h3>
-                    <ul class="space-y-3 text-sm font-medium text-textMuted">
-                        <li><span class="text-primary mr-2">✦</span>Microsoft Intune & MDM</li>
-                        <li><span class="text-primary mr-2">✦</span>NinjaOne RMM & Heimdal Security</li>
-                        <li><span class="text-primary mr-2">✦</span>VMware-Hosted Inventory Auditing</li>
-                        <li><span class="text-primary mr-2">✦</span>Zero Trust & Compliance (DPO)</li>
-                    </ul>
+                <!-- Card 3: Full Stack Web -->
+                <div class="bg-white p-10 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
+                     data-icon="fa-laptop-code"
+                     data-title="Full Stack Web Dev" 
+                     data-desc="<p class='mb-6'>Designing and developing high-performance, fully responsive websites. I bridge the gap between creative UI/UX design and secure, technically optimized server architecture.</p><div class='flex flex-wrap justify-center gap-2'><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>WordPress</span><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>Elementor Pro</span><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>PHP / JS</span></div>"
+                     data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-laptop-code text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-textMain">Full Stack Web</h3>
+                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Tech Stack</span>
                 </div>
 
-                <!-- Automation & Scripting -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 group clickable" data-aos="fade-up" data-aos-delay="400">
-                    <i class="fa-solid fa-wand-magic-sparkles text-2xl text-primary mb-5 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-lg font-bold text-textMain mb-4">Automation & Scripting</h3>
-                    <ul class="space-y-3 text-sm font-medium text-textMuted">
-                        <li><span class="text-primary mr-2">✦</span>Python & Streamlit Web Apps</li>
-                        <li><span class="text-primary mr-2">✦</span>Google Apps Script</li>
-                        <li><span class="text-primary mr-2">✦</span>Microsoft Power Automate</li>
-                        <li><span class="text-primary mr-2">✦</span>Custom REST API Integrations</li>
-                    </ul>
+                <!-- Card 4: AI & Automation -->
+                <div class="bg-white p-10 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
+                     data-icon="fa-wand-magic-sparkles"
+                     data-title="AI & App Automation" 
+                     data-desc="<p class='mb-6'>Building custom internal tools and intelligent platforms to centralize data. I integrate modern APIs and AI models to automate workflows, forecasting, and data extraction.</p><div class='flex flex-wrap justify-center gap-2'><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>Python</span><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>Streamlit</span><span class='text-[10px] bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200'>Gemini AI</span></div>"
+                     data-aos="fade-up" data-aos-delay="400">
+                    <i class="fa-solid fa-wand-magic-sparkles text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-bold text-textMain">AI & Automation</h3>
+                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Tech Stack</span>
                 </div>
+
             </div>
         </div>
     </section>
@@ -294,7 +243,6 @@
             <h2 class="text-2xl font-bold text-textMain mb-4 text-center tracking-wide uppercase" data-aos="fade-up">Featured Projects & Engineering</h2>
             <p class="text-center text-textMuted font-medium mb-8 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">A curated selection of my AI automation platforms, custom website engineering, and full stack designs.</p>
             
-            <!-- Filter Buttons -->
             <div class="flex flex-wrap justify-center gap-3 mb-10" id="projectFilters" data-aos="fade-up" data-aos-delay="150">
                 <button class="filter-btn active px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-black text-white transition-all clickable" data-filter="all">All Projects</button>
                 <button class="filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-black border border-slate-200 hover:border-primary transition-all clickable" data-filter="ai">AI & Automation</button>
@@ -302,20 +250,13 @@
             </div>
         </div>
         
-        <!-- Slider Wrapper with ALWAYS VISIBLE Arrows -->
         <div class="relative max-w-[1400px] mx-auto" data-aos="fade-up" data-aos-delay="200">
-            
-            <button id="slideLeft" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 bg-white border border-slate-200 shadow-xl w-12 h-12 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white hover:scale-110 transition-all clickable">
-                <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <button id="slideRight" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 bg-white border border-slate-200 shadow-xl w-12 h-12 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white hover:scale-110 transition-all clickable">
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
+            <button id="slideLeft" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 bg-white border border-slate-200 shadow-xl w-12 h-12 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white hover:scale-110 transition-all clickable"><i class="fa-solid fa-chevron-left"></i></button>
+            <button id="slideRight" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 bg-white border border-slate-200 shadow-xl w-12 h-12 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white hover:scale-110 transition-all clickable"><i class="fa-solid fa-chevron-right"></i></button>
 
-            <!-- Scrolling Container -->
             <div id="projectsSlider" class="flex overflow-x-auto gap-6 snap-x snap-mandatory hide-scroll-bar pb-10 pt-4 px-6 md:px-24 scroll-smooth">
                 
-                <!-- Project 0: AI Asset Management Platform -->
+                <!-- Project 0: AI Asset Management -->
                 <a href="https://itam-platform-263cwaffkj4tsblulabsdb.streamlit.app" target="_blank" class="project-card block w-[85vw] sm:w-[380px] shrink-0 snap-center bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-primary hover:shadow-xl transition-all duration-300 shadow-sm flex flex-col group clickable h-[450px]" data-category="ai">
                     <div class="h-40 bg-slate-100 border-b border-slate-200 relative overflow-hidden flex items-center justify-center shrink-0">
                         <img src="11itam.png" alt="AI Asset Management" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
@@ -324,14 +265,12 @@
                         <h3 class="text-[17px] font-bold text-textMain mb-2 group-hover:text-primary transition-colors leading-tight">AI-Powered IT Asset Platform</h3>
                         <p class="text-[13px] text-textMuted font-normal mb-3 flex-grow leading-relaxed">Centralizes procurement & budgeting with Google Gemini AI for automated PDF extraction and a rolling 5-year financial projection simulator.</p>
                         
-                        <!-- Tech Stack Tags -->
                         <div class="flex flex-wrap gap-1.5 mb-2">
                             <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">Python</span>
                             <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">Streamlit</span>
                             <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">Gemini AI</span>
                             <span class="text-[10px] bg-slate-50 border border-slate-200 px-2 py-1 rounded-md font-bold text-slate-600">Plotly</span>
                         </div>
-
                         <p class="text-[11px] font-bold text-primary mb-2">🔑 Demo Access Code: admin123</p>
                         <span class="inline-flex items-center text-sm text-black group-hover:text-primary transition-colors font-bold mt-auto">View Live Project <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i></span>
                     </div>
@@ -502,61 +441,6 @@
         </div>
     </section>
 
-    <!-- NEW SERVICES SECTION (POPUP STYLE) -->
-    <section id="services" class="py-16 lg:py-24 px-6 bg-altBg border-y border-slate-200">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-2xl font-bold text-textMain mb-12 lg:mb-16 text-center tracking-wide uppercase" data-aos="fade-up">My Services</h2>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- Service Card 1 -->
-                <div class="bg-white p-10 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
-                     data-icon="fa-network-wired"
-                     data-title="Remote IT Administration" 
-                     data-desc="Comprehensive remote administration aligned with <strong class='text-black'>ITIL v4 Foundation</strong> best practices. I specialize in Microsoft 365, Google Workspace, and Entra ID (Azure AD), ensuring standardized, high-quality IT service delivery for global teams."
-                     data-aos="fade-up" data-aos-delay="100">
-                    <i class="fa-solid fa-network-wired text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-lg font-bold text-textMain">Remote IT Administration</h3>
-                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Details</span>
-                </div>
-
-                <!-- Service Card 2 -->
-                <div class="bg-white p-10 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
-                     data-icon="fa-laptop-file"
-                     data-title="Software & Hardware Auditing" 
-                     data-desc="Conducting rigorous remote audits and lifecycle management of company assets. I deploy and manage centralized inventory servers hosted on <strong class='text-black'>VMware</strong> alongside modern MDM tools for automated tracking, zero-touch provisioning, and patch management."
-                     data-aos="fade-up" data-aos-delay="200">
-                    <i class="fa-solid fa-laptop-file text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-lg font-bold text-textMain">Software & Hardware Auditing</h3>
-                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Details</span>
-                </div>
-
-                <!-- Service Card 3 -->
-                <div class="bg-white p-10 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
-                     data-icon="fa-shield-halved"
-                     data-title="Security & Compliance" 
-                     data-desc="Proactive security monitoring, strict Zero Trust policy enforcement, and resilient automated backups (NAS/Cloud) to prevent data loss. As a DPO Champion, I ensure your infrastructure perfectly aligns with modern compliance standards."
-                     data-aos="fade-up" data-aos-delay="300">
-                    <i class="fa-solid fa-shield-halved text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-lg font-bold text-textMain">Security & Compliance</h3>
-                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Details</span>
-                </div>
-
-                <!-- Service Card 4 -->
-                <div class="bg-white p-10 rounded-2xl border border-slate-200 shadow-sm hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
-                     data-icon="fa-laptop-code"
-                     data-title="Full Stack Web Development" 
-                     data-desc="Designing and developing high-performance, fully responsive websites. I bridge the gap between creative UI/UX design (using WordPress and Elementor) and secure, technically optimized full stack architecture."
-                     data-aos="fade-up" data-aos-delay="400">
-                    <i class="fa-solid fa-laptop-code text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-lg font-bold text-textMain">Full Stack Web Dev</h3>
-                    <span class="mt-3 text-[10px] font-bold text-primary tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View Details</span>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
     <!-- CERTIFICATIONS & TRAINING SECTION -->
     <section class="py-16 lg:py-24 px-6 bg-lightBg border-b border-slate-200">
         <div class="max-w-4xl mx-auto">
@@ -601,15 +485,12 @@
 
     <!-- COMBINED CONTACT & FOOTER SECTION -->
     <footer id="contact" class="bg-altBg pt-16 lg:pt-24 pb-12 px-6 relative overflow-hidden">
-        
-        <!-- Top Half: Contact Form -->
         <div class="max-w-2xl mx-auto text-center mb-16">
             <h2 class="text-2xl font-bold text-textMain mb-4 tracking-wide uppercase" data-aos="fade-up">Let's Connect</h2>
             <p class="text-textMuted font-medium mb-10" data-aos="fade-up" data-aos-delay="100">Have a project in mind, need an infrastructure overhaul, or looking for a remote IT Lead? Drop me a message.</p>
             
             <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6 text-left" data-aos="fade-up" data-aos-delay="200">
                 <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-                
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-xs font-bold text-black uppercase tracking-wider mb-2">Name</label>
@@ -630,7 +511,6 @@
             </form>
         </div>
 
-        <!-- Bottom Half: Socials & Copyright -->
         <div class="max-w-4xl mx-auto pt-8 border-t border-slate-200 text-center flex flex-col items-center">
             <div class="flex justify-center gap-8 mb-6">
                 <a href="https://github.com/Ceejae24" target="_blank" class="text-slate-500 hover:text-primary text-2xl transition-all hover:scale-110 clickable"><i class="fa-brands fa-github"></i></a>
@@ -643,20 +523,14 @@
 
     <!-- DYNAMIC SERVICES MODAL -->
     <div id="serviceModal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4">
-        <!-- Dark Background Overlay -->
         <div id="modalBackdrop" class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity opacity-0 clickable cursor-pointer"></div>
-        
-        <!-- Modal Content Box -->
         <div id="modalContent" class="relative bg-white rounded-2xl p-8 sm:p-10 max-w-lg w-full shadow-2xl transform scale-95 opacity-0 transition-all duration-300 z-10 border border-slate-200 text-center">
-            <!-- Close Button -->
             <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-primary transition-colors clickable p-2">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
-            
-            <!-- Injected Icon, Title, and Description -->
             <i id="modalIcon" class="fa-solid text-4xl text-primary mb-5"></i>
             <h3 id="modalTitle" class="text-2xl font-bold text-textMain mb-4"></h3>
-            <p id="modalDesc" class="text-sm text-textMuted leading-relaxed"></p>
+            <div id="modalDesc" class="text-sm text-textMuted leading-relaxed"></div>
         </div>
     </div>
 
@@ -668,14 +542,11 @@
     <!-- AOS JS for Animations & Custom Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // 1. Loading Preloader 
         window.addEventListener('load', () => {
             const preloader = document.getElementById('preloader');
             setTimeout(() => {
                 preloader.style.transform = 'translateY(-100%)';
-                setTimeout(() => {
-                    AOS.init({ duration: 800, once: true, offset: 50, easing: 'ease-out-quad' });
-                }, 300); 
+                setTimeout(() => { AOS.init({ duration: 800, once: true, offset: 50, easing: 'ease-out-quad' }); }, 300); 
                 setTimeout(() => { preloader.style.display = 'none'; }, 1200); 
             }, 1200); 
         });
@@ -685,20 +556,16 @@
         const parallaxElements = document.querySelectorAll('.parallax');
         const scrollProgress = document.getElementById('scrollProgress');
 
-        // 2. Scroll Events
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
-
             const totalScroll = document.documentElement.scrollTop;
             const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrollPercent = `${(totalScroll / windowHeight) * 100}%`;
+            
             scrollProgress.style.width = scrollPercent;
 
-            if (scrollY > 300) {
-                navbar.classList.remove('-translate-y-full');
-            } else {
-                navbar.classList.add('-translate-y-full');
-            }
+            if (scrollY > 300) { navbar.classList.remove('-translate-y-full'); } 
+            else { navbar.classList.add('-translate-y-full'); }
 
             if (scrollY > 500) {
                 backToTopBtn.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
@@ -714,11 +581,8 @@
             });
         });
 
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-        // 3. Services Popup Modal Logic
         const serviceTriggers = document.querySelectorAll('.service-trigger');
         const serviceModal = document.getElementById('serviceModal');
         const modalBackdrop = document.getElementById('modalBackdrop');
@@ -729,16 +593,13 @@
         const closeModalBtn = document.getElementById('closeModal');
 
         const openModal = (iconClass, title, desc) => {
-            // Update Content
             modalIcon.className = `fa-solid ${iconClass} text-5xl text-primary mb-5`;
             modalTitle.innerHTML = title;
             modalDesc.innerHTML = desc;
             
-            // Show modal (remove hidden, add flex)
             serviceModal.classList.remove('hidden');
             serviceModal.classList.add('flex');
             
-            // Tiny delay to allow display:flex to apply before animating opacity/scale
             setTimeout(() => {
                 modalBackdrop.classList.remove('opacity-0');
                 modalBackdrop.classList.add('opacity-100');
@@ -748,35 +609,26 @@
         };
 
         const closeModal = () => {
-            // Animate out
             modalBackdrop.classList.remove('opacity-100');
             modalBackdrop.classList.add('opacity-0');
             modalContent.classList.remove('scale-100', 'opacity-100');
             modalContent.classList.add('scale-95', 'opacity-0');
             
-            // Wait for animation to finish before hiding element
             setTimeout(() => {
                 serviceModal.classList.add('hidden');
                 serviceModal.classList.remove('flex');
             }, 300);
         };
 
-        // Attach Event Listeners to cards
         serviceTriggers.forEach(card => {
             card.addEventListener('click', () => {
-                openModal(
-                    card.getAttribute('data-icon'), 
-                    card.getAttribute('data-title'), 
-                    card.getAttribute('data-desc')
-                );
+                openModal(card.getAttribute('data-icon'), card.getAttribute('data-title'), card.getAttribute('data-desc'));
             });
         });
 
-        // Attach close events
         closeModalBtn.addEventListener('click', closeModal);
         modalBackdrop.addEventListener('click', closeModal);
 
-        // 4. Custom Agency Cursor Logic
         const cursor = document.getElementById('custom-cursor');
         const clickables = document.querySelectorAll('a, button, input, textarea, .clickable');
 
@@ -791,12 +643,8 @@
 
             const attachCursorEvents = (elements) => {
                 elements.forEach((el) => {
-                    el.addEventListener('mouseenter', () => {
-                        cursor.classList.add('cursor-hover');
-                    });
-                    el.addEventListener('mouseleave', () => {
-                        cursor.classList.remove('cursor-hover');
-                    });
+                    el.addEventListener('mouseenter', () => { cursor.classList.add('cursor-hover'); });
+                    el.addEventListener('mouseleave', () => { cursor.classList.remove('cursor-hover'); });
                 });
             };
             attachCursorEvents(clickables);
@@ -804,7 +652,6 @@
             cursor.style.display = 'none'; 
         }
 
-        // 5. Custom Infinite Looping & Auto-Play Slider Logic
         const slider = document.getElementById('projectsSlider');
         const slideLeft = document.getElementById('slideLeft');
         const slideRight = document.getElementById('slideRight');
@@ -830,13 +677,8 @@
             slideLeft.addEventListener('click', scrollLeft);
             slideRight.addEventListener('click', scrollRight);
 
-            const startAutoPlay = () => {
-                autoPlayInterval = setInterval(scrollRight, 3000);
-            };
-
-            const stopAutoPlay = () => {
-                clearInterval(autoPlayInterval);
-            };
+            const startAutoPlay = () => { autoPlayInterval = setInterval(scrollRight, 3000); };
+            const stopAutoPlay = () => { clearInterval(autoPlayInterval); };
 
             startAutoPlay();
 
@@ -846,13 +688,11 @@
             slider.addEventListener('touchend', startAutoPlay);
         }
 
-        // 6. Project Categories Filter Logic
         const filterBtns = document.querySelectorAll('.filter-btn');
         const projectCards = document.querySelectorAll('.project-card');
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Update active button styling
                 filterBtns.forEach(b => {
                     b.classList.remove('bg-black', 'text-white');
                     b.classList.add('bg-white', 'text-black', 'border-slate-200');
@@ -862,7 +702,6 @@
 
                 const filterValue = btn.getAttribute('data-filter');
 
-                // Show or hide cards based on category
                 projectCards.forEach(card => {
                     if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
                         card.style.display = 'flex';
@@ -871,11 +710,9 @@
                     }
                 });
 
-                // Reset scroll position to the start when a filter is clicked
                 if (slider) slider.scrollTo({ left: 0, behavior: 'smooth' });
             });
         });
     </script>
-
 </body>
 </html>
