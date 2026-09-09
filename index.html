@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO & OPEN GRAPH TAGS -->
     <title>CJ Sicson | IT Lead & Full Stack Web Developer</title>
     <meta name="description" content="Portfolio of CJ Sicson. IT Infrastructure Lead, Zero Trust Security Expert, and Full Stack Web Developer.">
     <meta property="og:title" content="CJ Sicson | IT Lead & Web Engineer">
@@ -13,19 +12,10 @@
     <meta property="og:url" content="https://cjsicson.vercel.app">
     <meta property="og:type" content="website">
 
-    <!-- FAVICON -->
     <link rel="icon" type="image/png" href="image_6f6139.png">
-    
-    <!-- Smooth Scroll Animations (AOS Library) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     
     <script>
@@ -37,8 +27,8 @@
                     colors: {
                         lightBg: '#ffffff',     
                         altBg: '#f8fafc',       
-                        darkBg: '#000000',      /* True Black */
-                        darkAltBg: '#111111',   /* Deep Dark Gray */
+                        darkBg: '#000000',      
+                        darkAltBg: '#111111',   
                         primary: '#2563EB',     
                         online: '#10B981'       
                     }
@@ -48,10 +38,7 @@
     </script>
     <style>
         html { scroll-behavior: smooth; }
-        @keyframes subtle-pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
+        @keyframes subtle-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         .animate-subtle-pulse { animation: subtle-pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
@@ -68,8 +55,7 @@
         }
         #custom-cursor.cursor-hover {
             transform: translate(-50%, -50%) scale(4);
-            background-color: rgba(37, 99, 235, 0.2);
-            border: 0.5px solid rgba(37, 99, 235, 0.5);
+            background-color: rgba(37, 99, 235, 0.2); border: 0.5px solid rgba(37, 99, 235, 0.5);
         }
     </style>
 </head>
@@ -79,17 +65,15 @@
     <div id="scrollProgress" class="fixed top-0 left-0 h-[2px] bg-primary z-[150] w-0 transition-all duration-75"></div>
 
     <div id="preloader" class="fixed inset-0 z-[100] bg-black flex items-center justify-center transition-transform duration-[1200ms] ease-in-out">
-        <div class="text-white text-5xl md:text-6xl font-bold tracking-widest animate-subtle-pulse">
-            CJ<span class="text-primary">.</span>
-        </div>
+        <div class="text-white text-5xl md:text-6xl font-bold tracking-widest animate-subtle-pulse">CJ<span class="text-primary">.</span></div>
     </div>
 
-    <!-- STICKY NAV BAR -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-[90] bg-white/80 dark:bg-darkBg/90 backdrop-blur-md border-b border-slate-200 dark:border-neutral-900 px-6 py-4 flex justify-between items-center shadow-sm">
-        <a href="#" class="text-xl lg:text-2xl font-bold text-black dark:text-white tracking-widest hover:text-primary transition-colors">CJ<span class="text-primary">.</span></a>
+    <!-- STICKY NAV BAR (Hidden on load, slides down on scroll) -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-[90] bg-white/80 dark:bg-darkBg/90 backdrop-blur-md border-b border-slate-200 dark:border-neutral-900 px-6 py-4 flex justify-between items-center shadow-sm transition-transform duration-500 -translate-y-full">
+        <a href="#" class="text-xl lg:text-2xl font-bold text-black dark:text-white tracking-widest hover:text-primary transition-colors clickable">CJ<span class="text-primary">.</span></a>
         
         <div class="flex items-center gap-5">
-            <button id="themeToggle" class="text-slate-500 dark:text-gray-400 hover:text-primary transition-colors clickable text-lg">
+            <button class="theme-toggle text-slate-500 dark:text-gray-400 hover:text-primary transition-colors clickable text-lg">
                 <i class="fa-solid fa-moon dark:hidden"></i>
                 <i class="fa-solid fa-sun hidden dark:inline"></i>
             </button>
@@ -100,6 +84,20 @@
 
     <!-- HERO SECTION -->
     <header class="relative min-h-[100dvh] lg:min-h-screen flex flex-col lg:flex-row items-center justify-center bg-black overflow-hidden">
+        
+        <!-- TOP LEFT LOGO -->
+        <div class="absolute top-8 left-6 lg:top-12 lg:left-12 z-50" data-aos="fade-down" data-aos-delay="200">
+            <span class="text-2xl lg:text-3xl font-bold text-white tracking-widest">CJ<span class="text-primary">.</span></span>
+        </div>
+
+        <!-- TOP RIGHT THEME TOGGLE (Always visible on load) -->
+        <div class="absolute top-8 right-6 lg:top-12 lg:right-12 z-50" data-aos="fade-down" data-aos-delay="200">
+            <button class="theme-toggle w-10 h-10 rounded-full border border-neutral-700 bg-black text-white hover:bg-primary hover:border-primary transition-colors flex items-center justify-center shadow-lg clickable text-lg">
+                <i class="fa-solid fa-moon dark:hidden"></i>
+                <i class="fa-solid fa-sun hidden dark:inline"></i>
+            </button>
+        </div>
+
         <div class="absolute inset-0 z-0 w-full h-full pointer-events-none hidden lg:block">
             <div class="parallax absolute top-1/2 right-0 w-80 h-80 bg-primary rounded-full blur-[150px] opacity-[0.15] -translate-y-1/2 translate-x-1/2" data-speed="0.2"></div>
         </div>
@@ -109,7 +107,6 @@
         </div>
 
         <div class="max-w-7xl mx-auto w-full flex flex-col lg:grid lg:grid-cols-12 items-center lg:px-6 pt-0 lg:pt-28 pb-0 lg:pb-20 relative z-20 pointer-events-auto mt-16 lg:mt-0">
-            
             <div class="order-1 lg:order-2 w-full lg:w-auto px-6 lg:px-0 pt-16 lg:pt-32 pb-8 lg:py-0 bg-black lg:bg-transparent lg:col-span-5 lg:col-start-1 flex flex-col justify-center text-center lg:text-left drop-shadow-sm lg:drop-shadow-none">
                 <h1 class="text-4xl sm:text-5xl lg:text-7xl font-light text-white mb-2 tracking-tight" data-aos="fade-up" data-aos-delay="300">
                     Hi, <br class="hidden lg:block"> I'm <span class="font-bold text-white">CJ</span>
@@ -123,12 +120,6 @@
                     <a href="CV_Sicson.pdf" download class="bg-transparent border border-gray-500 hover:border-primary text-white hover:bg-primary font-medium py-3 px-8 rounded-lg transition-all duration-300 text-center flex items-center justify-center clickable">
                         <i class="fa-solid fa-file-pdf mr-2"></i> Download CV
                     </a>
-                </div>
-
-                <div class="flex gap-6 mt-10 lg:mt-12 justify-center lg:justify-start text-gray-400" data-aos="fade-up" data-aos-delay="600">
-                    <a href="https://github.com/Ceejae24" target="_blank" class="hover:text-primary transition-colors clickable"><i class="fa-brands fa-github text-2xl"></i></a>
-                    <a href="https://www.linkedin.com/in/cristine-jhoy-sicson-91822616b/" target="_blank" class="hover:text-primary transition-colors clickable"><i class="fa-brands fa-linkedin text-2xl"></i></a>
-                    <a href="#contact" class="hover:text-primary transition-colors clickable"><i class="fa-solid fa-envelope text-2xl"></i></a>
                 </div>
             </div>
 
@@ -169,8 +160,8 @@
         </div>
     </header>
 
-    <!-- IMPACT BY THE NUMBERS -->
-    <section class="py-12 bg-neutral-900 dark:bg-darkAltBg border-y border-neutral-800 transition-colors duration-300">
+    <!-- IMPACT BY THE NUMBERS (Permanently Dark) -->
+    <section class="py-12 bg-neutral-900 border-y border-neutral-800">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-neutral-700/50">
                 <div data-aos="fade-up" data-aos-delay="100">
@@ -209,63 +200,63 @@
 
     <!-- ENHANCED CAPABILITIES SECTION -->
     <section id="capabilities" class="py-16 lg:py-24 px-6 bg-altBg dark:bg-darkAltBg border-b border-slate-200 dark:border-neutral-900 transition-colors duration-300">
-        <div class="max-w-5xl mx-auto">
+        <div class="max-w-6xl mx-auto">
             <h2 class="text-2xl font-bold text-black dark:text-white mb-12 lg:mb-16 text-center tracking-wide uppercase" data-aos="fade-up">Core Capabilities</h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Card 1 -->
-                <div class="bg-white dark:bg-darkBg p-10 rounded-2xl border border-slate-200 dark:border-neutral-800 shadow-sm hover:border-primary dark:hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
+                <div class="bg-white dark:bg-darkBg p-8 rounded-2xl border border-slate-200 dark:border-neutral-800 shadow-sm hover:border-primary dark:hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
                      data-icon="fa-cloud" data-title="Cloud IT Administration" 
                      data-desc="<p class='mb-6 text-slate-600 dark:text-gray-400'>Comprehensive remote administration aligned with ITIL v4 Foundation best practices. I manage identities, enforce conditional access, and ensure high-quality global service delivery.</p><div class='flex flex-wrap justify-center gap-2'><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>Microsoft 365</span><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>Entra ID</span><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>Google Workspace</span></div>"
                      data-aos="fade-up" data-aos-delay="100">
                     <i class="fa-solid fa-cloud text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
                     <h3 class="text-lg font-bold text-black dark:text-white">Cloud IT Admin</h3>
                     
-                    <div class="mt-4 text-[10px] font-bold text-primary tracking-widest uppercase relative h-4 flex items-center justify-center overflow-hidden w-full">
-                        <span class="transition-all duration-300 transform group-hover:-translate-y-4 group-hover:opacity-0">View</span>
-                        <span class="absolute transition-all duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 whitespace-nowrap">View Tech Stack</span>
+                    <div class="mt-4 text-[11px] font-bold text-primary tracking-widest uppercase relative h-5 flex items-center justify-center overflow-hidden w-full">
+                        <span class="transition-all duration-300 transform group-hover:-translate-y-6 group-hover:opacity-0">View</span>
+                        <span class="absolute transition-all duration-300 transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 whitespace-nowrap">View Tech Stack</span>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="bg-white dark:bg-darkBg p-10 rounded-2xl border border-slate-200 dark:border-neutral-800 shadow-sm hover:border-primary dark:hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
+                <div class="bg-white dark:bg-darkBg p-8 rounded-2xl border border-slate-200 dark:border-neutral-800 shadow-sm hover:border-primary dark:hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
                      data-icon="fa-shield-halved" data-title="Security & Auditing" 
-                     data-desc="<p class='mb-6 text-slate-600 dark:text-gray-400'>Proactive security monitoring, strict Zero Trust policy enforcement, and rigorous lifecycle management. I deploy centralized, self-hosted inventory servers to ensure compliance.</p><div class='flex flex-wrap justify-center gap-2'><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>VMware</span><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>MS Intune</span><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>NinjaOne RMM</span></div>"
+                     data-desc="<p class='mb-6 text-slate-600 dark:text-gray-400'>Proactive security monitoring, strict Zero Trust policy enforcement, and rigorous lifecycle management. I deploy centralized, self-hosted inventory servers to ensure compliance.</p><div class='flex flex-wrap justify-center gap-2'><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>VMware</span><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>MS Intune</span><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>NinjaOne</span><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>Heimdal</span></div>"
                      data-aos="fade-up" data-aos-delay="200">
                     <i class="fa-solid fa-shield-halved text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
                     <h3 class="text-lg font-bold text-black dark:text-white">Security & Auditing</h3>
                     
-                    <div class="mt-4 text-[10px] font-bold text-primary tracking-widest uppercase relative h-4 flex items-center justify-center overflow-hidden w-full">
-                        <span class="transition-all duration-300 transform group-hover:-translate-y-4 group-hover:opacity-0">View</span>
-                        <span class="absolute transition-all duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 whitespace-nowrap">View Tech Stack</span>
+                    <div class="mt-4 text-[11px] font-bold text-primary tracking-widest uppercase relative h-5 flex items-center justify-center overflow-hidden w-full">
+                        <span class="transition-all duration-300 transform group-hover:-translate-y-6 group-hover:opacity-0">View</span>
+                        <span class="absolute transition-all duration-300 transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 whitespace-nowrap">View Tech Stack</span>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="bg-white dark:bg-darkBg p-10 rounded-2xl border border-slate-200 dark:border-neutral-800 shadow-sm hover:border-primary dark:hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
+                <div class="bg-white dark:bg-darkBg p-8 rounded-2xl border border-slate-200 dark:border-neutral-800 shadow-sm hover:border-primary dark:hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
                      data-icon="fa-laptop-code" data-title="Full Stack Web Dev" 
-                     data-desc="<p class='mb-6 text-slate-600 dark:text-gray-400'>Designing and developing high-performance, fully responsive websites. I bridge the gap between creative UI/UX design and secure, technically optimized server architecture.</p><div class='flex flex-wrap justify-center gap-2'><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>WordPress</span><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>Elementor Pro</span><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>PHP / JS</span></div>"
+                     data-desc="<p class='mb-6 text-slate-600 dark:text-gray-400'>Designing and developing high-performance, fully responsive websites. I bridge the gap between creative UI/UX design and secure, technically optimized server architecture.</p><div class='flex flex-wrap justify-center gap-2'><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>WordPress</span><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>Elementor</span><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>HTML/CSS</span><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>Bootstrap</span><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>PHP/JS</span></div>"
                      data-aos="fade-up" data-aos-delay="300">
                     <i class="fa-solid fa-laptop-code text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
                     <h3 class="text-lg font-bold text-black dark:text-white">Full Stack Web</h3>
                     
-                    <div class="mt-4 text-[10px] font-bold text-primary tracking-widest uppercase relative h-4 flex items-center justify-center overflow-hidden w-full">
-                        <span class="transition-all duration-300 transform group-hover:-translate-y-4 group-hover:opacity-0">View</span>
-                        <span class="absolute transition-all duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 whitespace-nowrap">View Tech Stack</span>
+                    <div class="mt-4 text-[11px] font-bold text-primary tracking-widest uppercase relative h-5 flex items-center justify-center overflow-hidden w-full">
+                        <span class="transition-all duration-300 transform group-hover:-translate-y-6 group-hover:opacity-0">View</span>
+                        <span class="absolute transition-all duration-300 transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 whitespace-nowrap">View Tech Stack</span>
                     </div>
                 </div>
 
                 <!-- Card 4 -->
-                <div class="bg-white dark:bg-darkBg p-10 rounded-2xl border border-slate-200 dark:border-neutral-800 shadow-sm hover:border-primary dark:hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
+                <div class="bg-white dark:bg-darkBg p-8 rounded-2xl border border-slate-200 dark:border-neutral-800 shadow-sm hover:border-primary dark:hover:border-primary hover:shadow-lg transition-all duration-300 group clickable flex flex-col items-center justify-center text-center cursor-pointer service-trigger" 
                      data-icon="fa-wand-magic-sparkles" data-title="AI & App Automation" 
                      data-desc="<p class='mb-6 text-slate-600 dark:text-gray-400'>Building custom internal tools and intelligent platforms to centralize data. I integrate modern APIs and AI models to automate workflows, forecasting, and data extraction.</p><div class='flex flex-wrap justify-center gap-2'><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>Python</span><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>Streamlit</span><span class='text-[10px] bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-gray-300 px-3 py-1.5 rounded-full font-bold uppercase tracking-wide border border-slate-200 dark:border-neutral-800'>Gemini AI</span></div>"
                      data-aos="fade-up" data-aos-delay="400">
                     <i class="fa-solid fa-wand-magic-sparkles text-4xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
                     <h3 class="text-lg font-bold text-black dark:text-white">AI & Automation</h3>
                     
-                    <div class="mt-4 text-[10px] font-bold text-primary tracking-widest uppercase relative h-4 flex items-center justify-center overflow-hidden w-full">
-                        <span class="transition-all duration-300 transform group-hover:-translate-y-4 group-hover:opacity-0">View</span>
-                        <span class="absolute transition-all duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 whitespace-nowrap">View Tech Stack</span>
+                    <div class="mt-4 text-[11px] font-bold text-primary tracking-widest uppercase relative h-5 flex items-center justify-center overflow-hidden w-full">
+                        <span class="transition-all duration-300 transform group-hover:-translate-y-6 group-hover:opacity-0">View</span>
+                        <span class="absolute transition-all duration-300 transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 whitespace-nowrap">View Tech Stack</span>
                     </div>
                 </div>
             </div>
@@ -532,21 +523,23 @@
     <!-- AOS JS for Animations & Custom Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Theme Toggle Logic
-        const themeToggle = document.getElementById('themeToggle');
+        // Shared Theme Toggle Logic
+        const themeToggles = document.querySelectorAll('.theme-toggle');
         const htmlElement = document.documentElement;
         
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             htmlElement.classList.add('dark');
         }
 
-        themeToggle.addEventListener('click', () => {
-            htmlElement.classList.toggle('dark');
-            if (htmlElement.classList.contains('dark')) {
-                localStorage.theme = 'dark';
-            } else {
-                localStorage.theme = 'light';
-            }
+        themeToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                htmlElement.classList.toggle('dark');
+                if (htmlElement.classList.contains('dark')) {
+                    localStorage.theme = 'dark';
+                } else {
+                    localStorage.theme = 'light';
+                }
+            });
         });
 
         // Number Counter Logic
@@ -586,7 +579,8 @@
             }, 1200); 
         });
 
-        // Scroll Logic
+        // Scroll Logic (Navbar sliding & Back to Top)
+        const navbar = document.getElementById('navbar');
         const backToTopBtn = document.getElementById('backToTop');
         const parallaxElements = document.querySelectorAll('.parallax');
         const scrollProgress = document.getElementById('scrollProgress');
@@ -596,6 +590,9 @@
             const totalScroll = document.documentElement.scrollTop;
             const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             scrollProgress.style.width = `${(totalScroll / windowHeight) * 100}%`;
+
+            if (scrollY > 300) { navbar.classList.remove('-translate-y-full'); } 
+            else { navbar.classList.add('-translate-y-full'); }
 
             if (scrollY > 500) {
                 backToTopBtn.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
